@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สรุปกรอบแนวคิดการวิจัย นิยามตัวแปร และข้อคำถาม (ทั้ง 3 รูปแบบ)</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1e3a8a;
+    --primary-light: #eff6ff;
+    --border-color: #cbd5e1;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #f1f5f9;
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.55;
+    font-size: 14px;
+  }
+
+  /* Top Action Bar */
+  .top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .top-bar-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #f8fafc;
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-nav {
+    background: #334155;
+    color: #ffffff;
+  }
+  .btn-nav:hover {
+    background: #475569;
+  }
+
+  .btn-print {
+    background: #16a34a;
+    color: #ffffff;
+  }
+  .btn-print:hover {
+    background: #15803d;
+  }
+
+  .btn-download {
+    background: #2563eb;
+    color: #ffffff;
+  }
+  .btn-download:hover {
+    background: #1d4ed8;
+  }
+
+  /* Main Container */
+  .container {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 20px;
+  }
+
+  /* Document Header */
+  .doc-header {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 24px 32px;
+    margin-bottom: 28px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    text-align: center;
+  }
+
+  .doc-header h1 {
+    margin: 0 0 8px 0;
+    font-size: 1.4rem;
+    color: var(--primary);
+  }
+
+  .doc-header p {
+    margin: 4px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* Model Section Card */
+  .model-section {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 36px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .section-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--primary);
+  }
+
+  .model-desc {
+    background: #f8fafc;
+    border-left: 4px solid #2563eb;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    color: #334155;
+    font-size: 0.92rem;
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* SVG Diagram Container */
+  .diagram-box {
+    width: 100%;
+    overflow-x: auto;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+  }
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 3-Column Table Styling */
+  .table-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 20px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scale-badge {
+    font-size: 0.82rem;
+    font-weight: 500;
+    background: #eff6ff;
+    color: #1e40af;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #bfdbfe;
+  }
+
+  table.three-col-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 0.9rem;
+  }
+
+  table.three-col-table th,
+  table.three-col-table td {
+    border: 1px solid #94a3b8;
+    padding: 12px 14px;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  table.three-col-table thead th {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  table.three-col-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  .col-var {
+    width: 24%;
+  }
+  .col-def {
+    width: 32%;
+  }
+  .col-items {
+    width: 44%;
+  }
+
+  .var-name {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 0.96rem;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .var-en {
+    font-style: italic;
+    color: #334155;
+    font-size: 0.86rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .var-meta {
+    font-size: 0.82rem;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border-left: 3px solid #64748b;
+  }
+
+  .item-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .item-list li {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+
+  .item-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .item-code {
+    font-weight: 700;
+    color: #1e40af;
+    margin-right: 4px;
+  }
+
+  /* Print Styles (A4 Landscape) */
+  @media print {
+    @page {
+      size: A4 landscape;
+      margin: 10mm 12mm;
+    }
+
+    body {
+      background: #ffffff;
+      font-size: 11.5pt;
+    }
+
+    .no-print {
+      display: none !important;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .doc-header {
+      box-shadow: none;
+      border: 1px solid #000;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .model-section {
+      box-shadow: none;
+      border: none;
+      padding: 0;
+      margin-bottom: 0;
+      page-break-before: always;
+      break-before: page;
+    }
+
+    .model-section:first-of-type {
+      page-break-before: auto;
+      break-before: auto;
+    }
+
+    .diagram-box {
+      border: 1px solid #94a3b8;
+      padding: 6px;
+      margin-bottom: 14px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    svg {
+      max-height: 360px;
+      width: auto;
+    }
+
+    table.three-col-table {
+      font-size: 10.5pt;
+      page-break-before: always;
+      break-before: page;
+    }
+
+    table.three-col-table tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    table.three-col-table thead th {
+      background-color: #e2e8f0 !important;
+      color: #000000 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sticky Control Bar -->
+<div class="top-bar no-print">
+  <div class="top-bar-title">เอกสารนำเสนออาจารย์ที่ปรึกษา: กรอบแนวคิด นิยามตัวแปร และข้อคำถาม (3 รูปแบบ) <span style="background:#2563eb; padding:3px 8px; border-radius:4px; font-size:0.8rem; margin-left:8px;">v1.0 | 2026-10-18 20:56</span></div>
+  <div class="nav-buttons">
+    <a href="#model-1" class="btn btn-nav">รูปแบบที่ 1 (S-O-R)</a>
+    <a href="#model-2" class="btn btn-nav">รูปแบบที่ 2 (Moderator)</a>
+    <a href="#model-3" class="btn btn-nav">รูปแบบที่ 3 (PMT)</a>
+    <button class="btn btn-print" onclick="window.print()">🖨️ พิมพ์เอกสาร / บันทึกเป็น PDF (A4 แนวนอน)</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Document Header -->
+  <div class="doc-header">
+    <h1>การเปรียบเทียบกรอบแนวคิดการวิจัย นิยามปฏิบัติการ และข้อคำถามในแบบสอบถาม (3 รูปแบบ)</h1>
+    <p><strong>หัวข้อวิทยานิพนธ์:</strong> ปัจจัยที่มีอิทธิพลต่อความตั้งใจในการยอมรับเทคโนโลยีบล็อกเชนเพื่อการชำระเงินและการเก็บออมในวัยเริ่มทำงาน (First Jobber) และกลุ่มผู้ใช้งานเทคโนโลยีบล็อกเชน (Blockchain User)</p>
+    <p><strong>ผู้วิจัย:</strong> นายพุฒิพงศ์ วงศ์ชัยรุ่งเรือง | <strong>รหัสนักศึกษา:</strong> 681220085 | <strong>มหาวิทยาลัยศิลปากร</strong></p>
+    <p><strong>สถิติที่ใช้ในการวิเคราะห์:</strong> แบบจำลองสมการโครงสร้าง (Structural Equation Modeling: SEM) | <strong>จำนวนข้อคำถามวัดตัวแปร:</strong> 6 ตัวแปร × 4 ข้อ = 24 ข้อต่อรูปแบบ</p>
+    <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;"><strong>เวอร์ชันเอกสาร:</strong> Version 1.0 (บันทึกเมื่อ: 2026-10-18 เวลา 20:56 น.)</p>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODEL 1: S-O-R & RISK MANAGEMENT MODEL                                -->
+  <!-- ===================================================================== -->
+  <div id="model-1" class="model-section">
+    <div class="section-header">
+      <h2>รูปแบบที่ 1: โมเดลตัวกระตุ้นและการจัดการความเสี่ยง (S-O-R &amp; Risk Management Model)</h2>
+      <button class="btn btn-download no-print" onclick="downloadSVGAsPNG('svg-fw1', 'Framework_1_SOR_Risk_Management.png')">📥 ดาวน์โหลดแผนภาพที่ 1 (.PNG)</button>
+    </div>
+
+    <div class="model-desc">
+      <strong>แนวคิดหลัก:</strong> ประยุกต์ทฤษฎีสิ่งเร้า-กระบวนการภายใน-การตอบสนอง (Stimulus-Organism-Response: S-O-R) โดยกำหนดให้ปัจจัยแวดล้อมทางเศรษฐกิจ สังคม และนวัตกรรมทำหน้าที่เป็น <strong>"ตัวกระตุ้น (Stimuli)"</strong> ที่ส่งผลผ่าน <strong>"ความสามารถในการจัดการความเสี่ยง"</strong> และ <strong>"การรับรู้ความเสี่ยง" (Organism)</strong> ไปสู่ความตั้งใจในการยอมรับเทคโนโลยีบล็อกเชน (Response)
+    </div>
+
+    <!-- SVG 1 -->
+    <div class="diagram-box">
+      <svg id="svg-fw1" viewBox="0 0 1000 520" width="1000" height="520" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#1d4ed8" />
+          </marker>
+          <marker id="arrow1-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#dc2626" />
+          </marker>
+          <marker id="arrow1-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
+          </marker>
+        </defs>
+        <rect width="1000" height="520" fill="#ffffff" />
+        <!-- Headers -->
+        <rect x="30" y="15" width="270" height="36" rx="6" fill="#eff6ff" stroke="#bfdbfe" />
+        <text x="165" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#1e40af" text-anchor="middle">ตัวกระตุ้นภายนอก: Stimulus (S)</text>
+        <rect x="365" y="15" width="290" height="36" rx="6" fill="#f0fdf4" stroke="#bbf7d0" />
+        <text x="510" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">การประเมินและจัดการความเสี่ยง: Organism (O)</text>
+        <rect x="720" y="15" width="250" height="36" rx="6" fill="#faf5ff" stroke="#e9d5ff" />
+        <text x="845" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#6b21a8" text-anchor="middle">การตอบสนอง: Response (R)</text>
+
+        <!-- Stimulus Boxes -->
+        <rect x="30" y="75" width="270" height="105" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+        <text x="165" y="105" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">1. ตัวกระตุ้นทางเศรษฐกิจ (MES)</text>
+        <text x="165" y="128" font-family="Sarabun, sans-serif" font-size="13" fill="#475569" text-anchor="middle">(Macroeconomic Stimulus)</text>
+        <text x="165" y="152" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• ภาวะเงินเฟ้อ / ข้อจำกัดธนาคารดั้งเดิม</text>
+
+        <rect x="30" y="215" width="270" height="105" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+        <text x="165" y="245" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">2. ตัวกระตุ้นทางสังคม (SOS)</text>
+        <text x="165" y="268" font-family="Sarabun, sans-serif" font-size="13" fill="#475569" text-anchor="middle">(Social Stimulus)</text>
+        <text x="165" y="292" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• อิทธิพลจาก KOLs / คอมมูนิตี้บล็อกเชน</text>
+
+        <rect x="30" y="355" width="270" height="105" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+        <text x="165" y="385" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">3. ตัวกระตุ้นเชิงนวัตกรรม (TES)</text>
+        <text x="165" y="408" font-family="Sarabun, sans-serif" font-size="13" fill="#475569" text-anchor="middle">(Technological Stimulus)</text>
+        <text x="165" y="432" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• ผลตอบแทน DeFi / Smart Contracts</text>
+
+        <!-- Organism Boxes -->
+        <rect x="375" y="95" width="270" height="125" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" />
+        <text x="510" y="127" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#14532d" text-anchor="middle">4. ความสามารถในการจัดการความเสี่ยง</text>
+        <text x="510" y="150" font-family="Sarabun, sans-serif" font-size="13" fill="#166534" text-anchor="middle">(Risk Management Capability: RMC)</text>
+        <text x="510" y="175" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• การเก็บรักษา Seed Phrase / Self-Custody</text>
+        <text x="510" y="195" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• การใช้เหรียญ Stablecoin ลดความผันผวน</text>
+
+        <rect x="375" y="315" width="270" height="125" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2" />
+        <text x="510" y="347" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#7f1d1d" text-anchor="middle">5. การรับรู้ความเสี่ยงและภัยคุกคาม</text>
+        <text x="510" y="370" font-family="Sarabun, sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">(Perceived Risk &amp; Threat: PRT)</text>
+        <text x="510" y="395" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• ความเสี่ยงทางไซเบอร์ / เรียกคืนไม่ได้</text>
+        <text x="510" y="415" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• ความผันผวนทางการเงินและข้อกฎหมาย</text>
+
+        <!-- Response Box -->
+        <rect x="720" y="185" width="250" height="160" rx="8" fill="#faf5ff" stroke="#7e22ce" stroke-width="2.5" />
+        <text x="845" y="227" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#4c1d95" text-anchor="middle">6. ความตั้งใจในการยอมรับ</text>
+        <text x="845" y="251" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#4c1d95" text-anchor="middle">เทคโนโลยีบล็อกเชน</text>
+        <text x="845" y="275" font-family="Sarabun, sans-serif" font-size="14" fill="#581c87" text-anchor="middle">เพื่อการชำระเงินและการเก็บออม</text>
+        <text x="845" y="299" font-family="Sarabun, sans-serif" font-size="13" font-weight="bold" fill="#6b21a8" text-anchor="middle">(Intention to Adopt: INT)</text>
+        <text x="845" y="323" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">[First Jobber / Blockchain User]</text>
+
+        <!-- Arrows -->
+        <line x1="300" y1="125" x2="372" y2="145" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow1-green)" />
+        <rect x="315" y="112" width="42" height="20" fill="#ffffff" />
+        <text x="336" y="126" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H1 (+)</text>
+
+        <line x1="300" y1="250" x2="372" y2="180" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow1-green)" />
+        <rect x="312" y="203" width="42" height="20" fill="#ffffff" />
+        <text x="333" y="217" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H2 (+)</text>
+
+        <line x1="300" y1="280" x2="372" y2="350" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow1-red)" />
+        <rect x="312" y="310" width="42" height="20" fill="#ffffff" />
+        <text x="333" y="324" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">H3 (-)</text>
+
+        <line x1="300" y1="410" x2="372" y2="390" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow1-red)" />
+        <rect x="315" y="393" width="42" height="20" fill="#ffffff" />
+        <text x="336" y="407" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">H4 (-)</text>
+
+        <!-- H5: Pointing Upwards from Box 5 to Box 4 with (+) -->
+        <line x1="510" y1="315" x2="510" y2="224" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow1)" />
+        <rect x="445" y="255" width="130" height="24" rx="4" fill="#eff6ff" stroke="#93c5fd" />
+        <text x="510" y="271" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8" text-anchor="middle">H5 (+)</text>
+
+        <line x1="645" y1="160" x2="718" y2="230" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow1-green)" />
+        <rect x="660" y="177" width="45" height="20" fill="#ffffff" />
+        <text x="682" y="191" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H6 (+)</text>
+
+        <line x1="645" y1="375" x2="718" y2="300" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrow1-red)" />
+        <rect x="660" y="333" width="45" height="20" fill="#ffffff" />
+        <text x="682" y="347" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">H7 (-)</text>
+      </svg>
+    </div>
+
+    <!-- 3-Column Table 1 -->
+    <div class="table-title">
+      <span>ตารางที่ 1: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 1: S-O-R &amp; Risk Management Model)</span>
+      <span class="scale-badge">มาตรวัด Likert Scale 5 ระดับ (5 = เห็นด้วยอย่างยิ่ง ถึง 1 = ไม่เห็นด้วยอย่างยิ่ง)</span>
+    </div>
+    <table class="three-col-table">
+      <thead>
+        <tr>
+          <th class="col-var">1. ตัวแปรแต่ละรูปแบบ<br>(Variables, Roles &amp; References)</th>
+          <th class="col-def">2. นิยามของแต่ละตัวแปร<br>(Operational Definitions)</th>
+          <th class="col-items">3. ข้อคำถามที่ต้องใช้ในแต่ละตัวแปร<br>(Questionnaire Items)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="var-name">1. ตัวกระตุ้นทางเศรษฐกิจ</span>
+            <span class="var-en">(Macroeconomic Stimulus: MES)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรอิสระ (Stimulus)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Ammous (2018); Bibi &amp; Canelli (2023); Almeida &amp; Gonçalves (2026)
+            </div>
+          </td>
+          <td>ระดับการรับรู้ถึงแรงกดดันจากสภาวะเศรษฐกิจมหภาค ทั้งภาวะเงินเฟ้อ การลดลงของอำนาจซื้อในระบบเงินเฟียต (Fiat Money) ที่รัฐสามารถเพิ่มปริมาณเงินได้ไม่จำกัด รวมถึงข้อจำกัดด้านความล่าช้าและค่าธรรมเนียมที่สูงของระบบธนาคารดั้งเดิม ซึ่งกระตุ้นให้บุคคลมองหาทางเลือกทางการเงินใหม่บนระบบบล็อกเชน</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">MES1:</span> ภาวะเงินเฟ้อที่ทำให้ค่าเงินและอำนาจซื้อลดลง กระตุ้นให้ข้าพเจ้ามองหาช่องทางเก็บออมในสินทรัพย์ดิจิทัลบนบล็อกเชน</li>
+              <li><span class="item-code">MES2:</span> ข้อจำกัดด้านความล่าช้าและค่าธรรมเนียมที่สูงของการโอนเงินผ่านตัวกลางแบบเดิม กระตุ้นให้ข้าพเจ้าสนใจระบบบล็อกเชน</li>
+              <li><span class="item-code">MES3:</span> การที่ธนาคารกลางสามารถพิมพ์เงินเฟียต (Fiat Money) เพิ่มเข้าสู่ระบบได้โดยไม่จำกัด ทำให้ข้าพเจ้าสนใจสินทรัพย์ดิจิทัลที่มีอุปทานจำกัด</li>
+              <li><span class="item-code">MES4:</span> ความไม่แน่นอนของเศรษฐกิจและอัตราดอกเบี้ยเงินฝากธนาคารที่ต่ำ เป็นแรงกระตุ้นให้ข้าพเจ้าศึกษาการเงินบนบล็อกเชน</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">2. ตัวกระตุ้นทางสังคม</span>
+            <span class="var-en">(Social Stimulus: SOS)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรอิสระ (Stimulus)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก ณัฐนิชา ศิริวรรณ และคณะ (2567); Recskó &amp; Aranyossy (2024); Gálvez-Sánchez et al. (2026)
+            </div>
+          </td>
+          <td>ระดับการรับรู้ถึงสิ่งเร้าทางสังคมผ่านการสื่อสารในกลุ่มชุมชนออนไลน์ (Online Communities) ข้อมูลจากผู้มีอิทธิพลทางความคิด (KOLs) และพฤติกรรมของกลุ่มเพื่อนหรือคนในวัยทำงานเดียวกัน ที่กระตุ้นให้เกิดความตื่นตัวและสนใจใช้งานเทคโนโลยีบล็อกเชน</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">SOS1:</span> ข้อมูลและการแบ่งปันความรู้จากผู้มีอิทธิพลทางความคิด (KOLs/Influencers) ด้านการเงิน กระตุ้นให้ข้าพเจ้าสนใจใช้งานบล็อกเชน</li>
+              <li><span class="item-code">SOS2:</span> การพูดคุยแลกเปลี่ยนประสบการณ์ในกลุ่มคอมมูนิตี้ออนไลน์ เป็นสิ่งเร้าให้ข้าพเจ้าอยากทดลองใช้สินทรัพย์ดิจิทัลเพื่อการชำระเงินหรือการออม</li>
+              <li><span class="item-code">SOS3:</span> เมื่อเห็นเพื่อนหรือคนในวัยทำงานเดียวกันเริ่มใช้คริปโทเคอร์เรนซีหรือเก็บออมดิจิทัล ทำให้ข้าพเจ้าตื่นตัวที่จะเรียนรู้ตาม</li>
+              <li><span class="item-code">SOS4:</span> กระแสข่าวสารความก้าวหน้าของเศรษฐกิจดิจิทัลบนสื่อสังคมออนไลน์ กระตุ้นให้ข้าพเจ้าเปิดรับเทคโนโลยีบล็อกเชนมากขึ้น</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">3. ตัวกระตุ้นเชิงนวัตกรรม</span>
+            <span class="var-en">(Technological Stimulus: TES)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรอิสระ (Stimulus)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Schär (2021); Zheng et al. (2024); Shroff et al. (2026)
+            </div>
+          </td>
+          <td>ระดับความรู้สึกดึงดูดใจจากคุณลักษณะและผลลัพธ์เชิงนวัตกรรมของเทคโนโลยีบล็อกเชน เช่น การชำระดุลธุรกรรมแบบทันที (Real-time Settlement) กลไกการทำงานอัตโนมัติของสัญญาอัจฉริยะ (Smart Contracts) และสิทธิประโยชน์จากการเก็บออมในระบบการเงินไร้ตัวกลาง (DeFi)</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">TES1:</span> ความสามารถของบล็อกเชนในการโอนชำระเงินได้ทันที (Real-time Settlement) ตลอด 24 ชั่วโมงแบบไร้พรมแดน เป็นสิ่งดึงดูดใจข้าพเจ้าอย่างมาก</li>
+              <li><span class="item-code">TES2:</span> กลไกสัญญาอัจฉริยะ (Smart Contracts) ที่ทำงานอัตโนมัติเมื่อเงื่อนไขครบถ้วนโดยไม่ต้องพึ่งพาคนกลาง กระตุ้นให้ข้าพเจ้าอยากใช้งาน</li>
+              <li><span class="item-code">TES3:</span> ผลตอบแทนและสิทธิประโยชน์รูปแบบใหม่จากการออมในระบบการเงินไร้ตัวกลาง (DeFi) ดึงดูดให้ข้าพเจ้าสนใจมากกว่าการฝากเงินแบบเดิม</li>
+              <li><span class="item-code">TES4:</span> ความโปร่งใสของสมุดบัญชีสาธารณะที่ตรวจสอบย้อนหลังได้เสมอ เป็นจุดเด่นเชิงนวัตกรรมที่กระตุ้นให้ข้าพเจ้าสนใจบล็อกเชน</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">4. ความสามารถในการจัดการความเสี่ยง</span>
+            <span class="var-en">(Risk Management Capability: RMC)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรส่งผ่าน (Mediator - Organism)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Antonopoulos (2017); Berentsen &amp; Schär (2019); อภิสิทธิ์ วงศ์วิวัฒน์ (2565); Boubaker et al. (2024)
+            </div>
+          </td>
+          <td>ระดับความรู้ ทักษะ และแนวทางปฏิบัติของผู้ใช้งานในการป้องกันและบริหารจัดการความเสี่ยงจากการทำธุรกรรมบนบล็อกเชน เช่น การเก็บรักษารหัสผ่านส่วนตัว (Private Key / Seed Phrase) การเลือกใช้เหรียญที่มีมูลค่าคงที่ (Stablecoins) เพื่อลดความผันผวน และการตรวจสอบความถูกต้องก่อนทำธุรกรรม</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">RMC1:</span> ข้าพเจ้ามีความรู้และวิธีเก็บรักษารหัสผ่านส่วนตัว (Private Key / Seed Phrase) อย่างปลอดภัยเพื่อป้องกันการสูญหายของสินทรัพย์</li>
+              <li><span class="item-code">RMC2:</span> ข้าพเจ้าเข้าใจการเลือกใช้เหรียญที่มีมูลค่าคงที่ (เช่น Stablecoin) เพื่อจัดการความเสี่ยงจากความผันผวนของราคาในการชำระเงินและการออม</li>
+              <li><span class="item-code">RMC3:</span> ข้าพเจ้าให้ความสำคัญกับการตรวจสอบความถูกต้องของที่อยู่กระเป๋าเงิน (Wallet Address) และเครือข่ายทุกครั้งก่อนยืนยันธุรกรรม</li>
+              <li><span class="item-code">RMC4:</span> ข้าพเจ้าสามารถแบ่งสัดส่วนเงินออมและกำหนดขอบเขตความเสี่ยงที่ตนเองยอมรับได้ในการถือครองสินทรัพย์ดิจิทัล</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">5. การรับรู้ความเสี่ยงและภัยคุกคาม</span>
+            <span class="var-en">(Perceived Risk &amp; Threat: PRT)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรส่งผ่าน (Mediator - Organism)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Featherman &amp; Pavlou (2003); จิราภรณ์ แสงทอง (2566); Alfar &amp; Xia (2024); Daana &amp; Yeşilada (2025)
+            </div>
+          </td>
+          <td>ระดับความกังวลหรือความรู้สึกไม่มั่นใจของผู้ใช้งานเกี่ยวกับความไม่แน่นอนและความสูญเสียที่อาจเกิดขึ้นจากการใช้เทคโนโลยีบล็อกเชน ทั้งด้านความปลอดภัยทางไซเบอร์ ช่องโหว่ทางโปรแกรม การทำธุรกรรมผิดพลาดแล้วเรียกคืนไม่ได้ (Non-reversible) ความผันผวนของมูลค่า และความไม่ชัดเจนทางกฎหมาย</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">PRT1:</span> ข้าพเจ้ากังวลเกี่ยวกับภัยคุกคามทางไซเบอร์ เช่น การถูกแฮกกระเป๋าเงินดิจิทัล หรือช่องโหว่ของโปรแกรม (Bug in Code)</li>
+              <li><span class="item-code">PRT2:</span> ข้าพเจ้ากังวลว่าหากทำรายการโอนสินทรัพย์ดิจิทัลผิดพลาด จะไม่สามารถยกเลิกหรือดึงเงินคืนได้ (Non-reversible transaction)</li>
+              <li><span class="item-code">PRT3:</span> ข้าพเจ้ารู้สึกไม่มั่นใจต่อความผันผวนของมูลค่าสินทรัพย์ดิจิทัลที่อาจทำให้สูญเสียมูลค่าเงินต้นในการเก็บออม</li>
+              <li><span class="item-code">PRT4:</span> ข้าพเจ้ากังวลเกี่ยวกับความไม่ชัดเจนของกฎระเบียบภาครัฐ การคุ้มครองผู้บริโภค และเกณฑ์ภาษีสินทรัพย์ดิจิทัลในประเทศไทย</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">6. ความตั้งใจในการยอมรับบล็อกเชน</span>
+            <span class="var-en">(Intention to Adopt: INT)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรตาม (Dependent - Response)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Venkatesh et al. (2003); Islam et al. (2023); Shahzad et al. (2024)
+            </div>
+          </td>
+          <td>ระดับความมุ่งมั่น การวางแผน และแนวโน้มความน่าจะเป็นที่บุคคลจะตัดสินใจเลือกใช้และปรับใช้เทคโนโลยีบล็อกเชนเป็นช่องทางในการชำระเงินและการเก็บออมทั้งในปัจจุบันและอนาคต</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">INT1:</span> ข้าพเจ้ามีความตั้งใจที่จะนำเทคโนโลยีบล็อกเชนมาใช้เป็นช่องทางในการชำระเงินหรือโอนสินทรัพย์ในอนาคต</li>
+              <li><span class="item-code">INT2:</span> ข้าพเจ้าวางแผนที่จะใช้สินทรัพย์ดิจิทัลบนระบบบล็อกเชนเป็นหนึ่งในทางเลือกสำหรับการเก็บออมระยะยาว</li>
+              <li><span class="item-code">INT3:</span> หากร้านค้าหรือบริการทั่วไปรองรับการชำระเงินผ่านระบบบล็อกเชนอย่างถูกกฎหมาย ข้าพเจ้าจะเลือกใช้งานอย่างแน่นอน</li>
+              <li><span class="item-code">INT4:</span> ข้าพเจ้าตั้งใจจะศึกษาและติดตามพัฒนาการของเทคโนโลยีบล็อกเชนเพื่อนำมาบริหารจัดการการเงินอย่างต่อเนื่อง</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODEL 2: RISK MANAGEMENT AS A MODERATOR MODEL                         -->
+  <!-- ===================================================================== -->
+  <div id="model-2" class="model-section">
+    <div class="section-header">
+      <h2>รูปแบบที่ 2: โมเดลการจัดการความเสี่ยงเป็นตัวแปรกำกับ (Risk Management as a Moderator Model)</h2>
+      <button class="btn btn-download no-print" onclick="downloadSVGAsPNG('svg-fw2', 'Framework_2_Moderator_Model.png')">📥 ดาวน์โหลดแผนภาพที่ 2 (.PNG)</button>
+    </div>
+
+    <div class="model-desc">
+      <strong>แนวคิดหลัก:</strong> มุ่งศึกษาอิทธิพลของตัวกระตุ้นที่มีต่อความไว้วางใจในระบบไร้ตัวกลางและการรับรู้ความเสี่ยง โดยมีจุดเด่นคือการกำหนดให้ <strong>"กลยุทธ์การจัดการความเสี่ยงส่วนบุคคล"</strong> ทำหน้าที่เป็น <strong>ตัวแปรกำกับ (Moderator)</strong> ที่คอยบรรเทาผลกระทบเชิงลบของการรับรู้ความเสี่ยงที่มีต่อความตั้งใจในการยอมรับเทคโนโลยีบล็อกเชน
+    </div>
+
+    <!-- SVG 2 -->
+    <div class="diagram-box">
+      <svg id="svg-fw2" viewBox="0 0 1000 520" width="1000" height="520" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+          </marker>
+          <marker id="arrow2-mod" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706" />
+          </marker>
+        </defs>
+        <rect width="1000" height="520" fill="#ffffff" />
+        <!-- Headers -->
+        <rect x="30" y="15" width="270" height="36" rx="6" fill="#eff6ff" stroke="#bfdbfe" />
+        <text x="165" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#1e40af" text-anchor="middle">ตัวแปรอิสระ: ปัจจัยกระตุ้น (Stimuli)</text>
+        <rect x="365" y="15" width="280" height="36" rx="6" fill="#fefce8" stroke="#fde047" />
+        <text x="505" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#854d0e" text-anchor="middle">ตัวแปรส่งผ่าน (Mediators) &amp; ตัวแปรกำกับ</text>
+        <rect x="720" y="15" width="250" height="36" rx="6" fill="#faf5ff" stroke="#e9d5ff" />
+        <text x="845" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#6b21a8" text-anchor="middle">ตัวแปรตาม (Dependent Variable)</text>
+
+        <!-- Stimuli -->
+        <rect x="30" y="95" width="270" height="120" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+        <text x="165" y="130" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">1. ตัวกระตุ้นด้านอิสรภาพทางการเงิน</text>
+        <text x="165" y="153" font-family="Sarabun, sans-serif" font-size="13" fill="#475569" text-anchor="middle">(Financial Autonomy Stimulus: FAS)</text>
+        <text x="165" y="178" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• การโอนแบบ Peer-to-Peer ไร้ตัวกลาง</text>
+        <text x="165" y="198" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• ความเท่าเทียมทางการเงิน (Inclusion)</text>
+
+        <rect x="30" y="265" width="270" height="120" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+        <text x="165" y="300" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">2. ตัวกระตุ้นจากระบบนิเวศบล็อกเชน</text>
+        <text x="165" y="323" font-family="Sarabun, sans-serif" font-size="13" fill="#475569" text-anchor="middle">(Blockchain Ecosystem Stimulus: BES)</text>
+        <text x="165" y="348" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• สังคมไร้เงินสด / การเชื่อมต่อสมาร์ทโฟน</text>
+        <text x="165" y="368" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• พื้นที่ทดสอบนวัตกรรม (Sandbox)</text>
+
+        <!-- Mediators -->
+        <rect x="370" y="85" width="270" height="110" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" />
+        <text x="505" y="120" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#14532d" text-anchor="middle">3. ความไว้วางใจในระบบไร้ตัวกลาง</text>
+        <text x="505" y="143" font-family="Sarabun, sans-serif" font-size="13" fill="#166534" text-anchor="middle">(Decentralized Trust: DTR)</text>
+        <text x="505" y="168" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• ความเชื่อมั่นใน Consensus &amp; Immutability</text>
+
+        <rect x="370" y="245" width="270" height="110" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2" />
+        <text x="505" y="280" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#7f1d1d" text-anchor="middle">4. การรับรู้ความเสี่ยง</text>
+        <text x="505" y="303" font-family="Sarabun, sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">(Perceived Risk: PR)</text>
+        <text x="505" y="328" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• ความเสี่ยงด้านไซเบอร์ / การเงิน / กฎหมาย</text>
+
+        <!-- Moderator -->
+        <rect x="430" y="400" width="320" height="105" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2.5" stroke-dasharray="6,3" />
+        <text x="590" y="430" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#92400e" text-anchor="middle">5. กลยุทธ์การจัดการความเสี่ยงส่วนบุคคล</text>
+        <text x="590" y="453" font-family="Sarabun, sans-serif" font-size="13" font-weight="bold" fill="#b45309" text-anchor="middle">(Personal Risk Management: PRM)</text>
+        <text x="590" y="477" font-family="Sarabun, sans-serif" font-size="12" fill="#78350f" text-anchor="middle">★ ตัวแปรกำกับ (Moderator) ลดผลลบของความเสี่ยง</text>
+
+        <!-- Dependent -->
+        <rect x="720" y="150" width="250" height="160" rx="8" fill="#faf5ff" stroke="#7e22ce" stroke-width="2.5" />
+        <text x="845" y="190" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#4c1d95" text-anchor="middle">6. ความตั้งใจในการยอมรับ</text>
+        <text x="845" y="214" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#4c1d95" text-anchor="middle">เทคโนโลยีบล็อกเชน</text>
+        <text x="845" y="238" font-family="Sarabun, sans-serif" font-size="14" fill="#581c87" text-anchor="middle">เพื่อการชำระเงินและการเก็บออม</text>
+        <text x="845" y="262" font-family="Sarabun, sans-serif" font-size="13" font-weight="bold" fill="#6b21a8" text-anchor="middle">(Intention to Adopt: INT)</text>
+        <text x="845" y="286" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">[First Jobber / Blockchain User]</text>
+
+        <!-- Arrows -->
+        <line x1="300" y1="140" x2="366" y2="135" stroke="#334155" stroke-width="2" marker-end="url(#arrow2)" />
+        <rect x="312" y="114" width="42" height="20" fill="#ffffff" />
+        <text x="333" y="128" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H1 (+)</text>
+
+        <line x1="300" y1="180" x2="366" y2="275" stroke="#334155" stroke-width="2" marker-end="url(#arrow2)" />
+        <rect x="302" y="238" width="40" height="20" fill="#ffffff" />
+        <text x="322" y="252" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">H2 (-)</text>
+
+        <line x1="300" y1="300" x2="366" y2="170" stroke="#334155" stroke-width="2" marker-end="url(#arrow2)" />
+        <rect x="328" y="200" width="40" height="20" fill="#ffffff" />
+        <text x="348" y="214" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H3 (+)</text>
+
+        <line x1="300" y1="330" x2="366" y2="315" stroke="#334155" stroke-width="2" marker-end="url(#arrow2)" />
+        <rect x="312" y="328" width="42" height="20" fill="#ffffff" />
+        <text x="333" y="342" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">H4 (-)</text>
+
+        <line x1="640" y1="140" x2="716" y2="195" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow2)" />
+        <rect x="658" y="144" width="44" height="20" fill="#ffffff" />
+        <text x="680" y="158" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H5 (+)</text>
+
+        <line x1="640" y1="300" x2="716" y2="255" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow2)" />
+        <rect x="654" y="282" width="44" height="20" fill="#ffffff" />
+        <text x="676" y="296" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">H6 (-)</text>
+
+        <line x1="640" y1="400" x2="682" y2="282" stroke="#d97706" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arrow2-mod)" />
+        <rect x="625" y="340" width="110" height="22" rx="4" fill="#fffbeb" stroke="#fcd34d" />
+        <text x="680" y="355" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#b45309" text-anchor="middle">H7 (Moderator)</text>
+      </svg>
+    </div>
+
+    <!-- 3-Column Table 2 -->
+    <div class="table-title">
+      <span>ตารางที่ 2: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 2: Risk Management as a Moderator Model)</span>
+      <span class="scale-badge">มาตรวัด Likert Scale 5 ระดับ (5 = เห็นด้วยอย่างยิ่ง ถึง 1 = ไม่เห็นด้วยอย่างยิ่ง)</span>
+    </div>
+    <table class="three-col-table">
+      <thead>
+        <tr>
+          <th class="col-var">1. ตัวแปรแต่ละรูปแบบ<br>(Variables, Roles &amp; References)</th>
+          <th class="col-def">2. นิยามของแต่ละตัวแปร<br>(Operational Definitions)</th>
+          <th class="col-items">3. ข้อคำถามที่ต้องใช้ในแต่ละตัวแปร<br>(Questionnaire Items)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="var-name">1. ตัวกระตุ้นด้านอิสรภาพทางการเงิน</span>
+            <span class="var-en">(Financial Autonomy Stimulus: FAS)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรอิสระ (Independent)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Nakamoto (2008); Financial Services Authority (2023); Nur Muharam et al. (2023)
+            </div>
+          </td>
+          <td>ระดับแรงจูงใจของผู้ใช้งานที่ต้องการความเป็นอิสระในการบริหารจัดการทรัพย์สินด้วยตนเอง การทำธุรกรรมแลกเปลี่ยนโดยตรงแบบไร้ตัวกลาง (Peer-to-Peer) การโอนย้ายมูลค่าข้ามพรมแดนอย่างเสรี และการเข้าถึงบริการทางการเงินอย่างเท่าเทียม (Financial Inclusion)</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">FAS1:</span> ความต้องการเป็นเจ้าของและควบคุมทรัพย์สินด้วยตนเองโดยไม่ต้องพึ่งพาสถาบันตัวกลาง กระตุ้นให้ข้าพเจ้าสนใจบล็อกเชน</li>
+              <li><span class="item-code">FAS2:</span> ความสามารถในการทำธุรกรรมแบบ Peer-to-Peer ที่ไม่มีตัวกลางคอยจำกัดสิทธิ์ เป็นแรงจูงใจสำคัญสำหรับข้าพเจ้า</li>
+              <li><span class="item-code">FAS3:</span> ข้าพเจ้าถูกกระตุ้นด้วยแนวคิดของการมีอิสระในการโอนย้ายมูลค่าทางการเงินข้ามพรมแดนได้อย่างเสรีและรวดเร็ว</li>
+              <li><span class="item-code">FAS4:</span> การที่บล็อกเชนเปิดโอกาสให้ทุกคนเข้าถึงบริการทางการเงินได้อย่างเท่าเทียม (Financial Inclusion) ดึงดูดใจข้าพเจ้าอย่างมาก</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">2. ตัวกระตุ้นจากระบบนิเวศบล็อกเชน</span>
+            <span class="var-en">(Blockchain Ecosystem Stimulus: BES)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรอิสระ (Independent)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Priporas et al. (2022); ธนาคารแห่งประเทศไทย (2023); Liu et al. (2025)
+            </div>
+          </td>
+          <td>ระดับการรับรู้ถึงความพร้อมและสิ่งเร้าจากสภาพแวดล้อมดิจิทัล เช่น ความคุ้นเคยกับสังคมไร้เงินสด การเข้าถึงแอปพลิเคชันกระเป๋าเงินดิจิทัลผ่านสมาร์ทโฟน การมีพื้นที่ทดสอบนวัตกรรม (Sandbox) และการขยายตัวของชุมชนผู้ใช้งานบล็อกเชน</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">BES1:</span> การที่แอปพลิเคชันกระเป๋าเงินดิจิทัลในปัจจุบันเชื่อมต่อกับสมาร์ทโฟนได้สะดวก กระตุ้นให้ข้าพเจ้าอยากใช้งานบล็อกเชน</li>
+              <li><span class="item-code">BES2:</span> การเปิดพื้นที่ทดสอบนวัตกรรม (Sandbox) และการมีผู้ให้บริการสินทรัพย์ดิจิทัลในไทย เป็นสิ่งเร้าให้ข้าพเจ้าสนใจเทคโนโลยีนี้</li>
+              <li><span class="item-code">BES3:</span> ความคุ้นเคยกับสังคมไร้เงินสด (Cashless Society) ในชีวิตประจำวัน เกื้อหนุนให้ข้าพเจ้าพร้อมก้าวสู่การใช้บล็อกเชน</li>
+              <li><span class="item-code">BES4:</span> การเติบโตของชุมชนผู้ใช้งานและบริการใหม่ๆ ในระบบนิเวศบล็อกเชน กระตุ้นให้ข้าพเจ้าต้องการเรียนรู้เพื่อไม่ให้ตกยุค</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">3. ความไว้วางใจในระบบไร้ตัวกลาง</span>
+            <span class="var-en">(Decentralized Trust: DTR)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรส่งผ่าน (Mediator)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Werbach (2018); Shahzad et al. (2024); Woodside et al. (2024)
+            </div>
+          </td>
+          <td>ระดับความเชื่อมั่นของผู้ใช้งานที่มีต่อสถาปัตยกรรมของเทคโนโลยีบล็อกเชน ซึ่งเปลี่ยนจากการพึ่งพาความน่าเชื่อถือของมนุษย์หรือสถาบัน มาเป็นความไว้วางใจในรหัสคอมพิวเตอร์ ระเบียบวิธีหาฉันทามติ (Consensus Algorithm) และความไม่สามารถแก้ไขข้อมูลย้อนหลังได้ (Immutability)</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">DTR1:</span> ข้าพเจ้าไว้วางใจในกลไกทางคณิตศาสตร์และการเข้ารหัสลับของบล็อกเชน มากกว่าการพึ่งพาตัวกลางที่เป็นมนุษย์</li>
+              <li><span class="item-code">DTR2:</span> ข้าพเจ้าเชื่อมั่นว่าระบบฉันทามติ (Consensus Algorithm) สามารถยืนยันความถูกต้องของธุรกรรมได้อย่างโปร่งใส</li>
+              <li><span class="item-code">DTR3:</span> ข้าพเจ้าเชื่อว่าข้อมูลธุรกรรมที่ถูกบันทึกลงบนบล็อกเชนแล้วจะมีความปลอดภัยสูงและไม่สามารถถูกปลอมแปลงแก้ไขได้</li>
+              <li><span class="item-code">DTR4:</span> โดยรวมแล้ว ข้าพเจ้ามีความเชื่อมั่นในความเสถียรและความโปร่งใสของโครงสร้างเครือข่ายแบบกระจายศูนย์ (Decentralization)</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">4. การรับรู้ความเสี่ยง</span>
+            <span class="var-en">(Perceived Risk: PR)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรส่งผ่าน (Mediator)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Taddei &amp; Contena (2013); Abramova &amp; Böhme (2023); พงศธร กิตติมา และคณะ (2567)
+            </div>
+          </td>
+          <td>ระดับความกังวลหรือการรับรู้ของผู้ใช้งานเกี่ยวกับความไม่แน่นอนและความสูญเสียที่อาจเกิดขึ้นจากการใช้เทคโนโลยีบล็อกเชน ทั้งในด้านความปลอดภัยทางไซเบอร์ ความผันผวนทางการเงิน ความเสี่ยงจากการทำธุรกรรมผิดพลาด และความเสี่ยงทางกฎหมาย</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">PR1:</span> ข้าพเจ้ากังวลเกี่ยวกับภัยคุกคามทางไซเบอร์ เช่น การถูกโจรกรรมสินทรัพย์ดิจิทัล หรือช่องโหว่ของสัญญาอัจฉริยะ (Smart Contract)</li>
+              <li><span class="item-code">PR2:</span> ข้าพเจ้ากังวลว่าหากทำธุรกรรมบนบล็อกเชนผิดพลาด จะไม่สามารถยกเลิกหรือเรียกทรัพย์สินคืนได้ (Non-reversible)</li>
+              <li><span class="item-code">PR3:</span> ข้าพเจ้ากังวลต่อความผันผวนของราคาสินทรัพย์ดิจิทัลและค่าธรรมเนียมเครือข่ายที่อาจเปลี่ยนแปลงโดยไม่คาดคิด</li>
+              <li><span class="item-code">PR4:</span> ข้าพเจ้ากังวลต่อความไม่แน่นอนของนโยบายภาครัฐและกฎหมายควบคุมสินทรัพย์ดิจิทัลในประเทศไทย</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">5. กลยุทธ์การจัดการความเสี่ยงส่วนบุคคล</span>
+            <span class="var-en">(Personal Risk Management: PRM)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรกำกับ (Moderator)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Song et al. (2023); Lučić et al. (2024); Xie et al. (2024); วิภาวดี สมบูรณ์ (2567)
+            </div>
+          </td>
+          <td>แนวทาง การวางแผน และการใช้เครื่องมือป้องกันความเสี่ยงล่วงหน้าของผู้ใช้งาน (เช่น การศึกษาข้อมูลแพลตฟอร์ม การตั้งค่ารักษาความปลอดภัยหลายชั้น และการกระจายสินทรัพย์) ซึ่งทำหน้าที่ลดทอนอิทธิพลเชิงลบของการรับรู้ความเสี่ยงที่มีต่อความตั้งใจยอมรับบล็อกเชน</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">PRM1:</span> ข้าพเจ้ามีกลยุทธ์ในการศึกษาข้อมูลและตรวจสอบความน่าเชื่อถือของแพลตฟอร์มอย่างละเอียดก่อนทำธุรกรรมเสมอ</li>
+              <li><span class="item-code">PRM2:</span> ข้าพเจ้าเลือกใช้มาตรการรักษาความปลอดภัยหลายชั้น (เช่น รหัสยืนยัน 2FA หรือ Hardware Wallet) เพื่อลดความเสี่ยงทางไซเบอร์</li>
+              <li><span class="item-code">PRM3:</span> ข้าพเจ้ากระจายการเก็บออมไว้ในสินทรัพย์หลายประเภท (รวมถึง Stablecoin) เพื่อลดผลกระทบจากความผันผวนของตลาด</li>
+              <li><span class="item-code">PRM4:</span> ข้าพเจ้าติดตามข่าวสารด้านกฎระเบียบและรูปแบบกลโกงไซเบอร์อย่างสม่ำเสมอ เพื่อปรับแผนป้องกันความเสี่ยงของตนเอง</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">6. ความตั้งใจในการยอมรับบล็อกเชน</span>
+            <span class="var-en">(Intention to Adopt: INT)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรตาม (Dependent)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Venkatesh et al. (2003); Islam et al. (2023); Shahzad et al. (2024)
+            </div>
+          </td>
+          <td>ระดับความมุ่งมั่น การวางแผน และแนวโน้มความน่าจะเป็นที่บุคคลจะตัดสินใจเลือกใช้และปรับใช้เทคโนโลยีบล็อกเชนเป็นช่องทางในการชำระเงินและการเก็บออมทั้งในปัจจุบันและอนาคต</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">INT1:</span> ข้าพเจ้ามีความตั้งใจที่จะนำเทคโนโลยีบล็อกเชนมาใช้เป็นช่องทางในการชำระเงินหรือโอนสินทรัพย์ในอนาคต</li>
+              <li><span class="item-code">INT2:</span> ข้าพเจ้าวางแผนที่จะใช้สินทรัพย์ดิจิทัลบนระบบบล็อกเชนเป็นหนึ่งในทางเลือกสำหรับการเก็บออมระยะยาว</li>
+              <li><span class="item-code">INT3:</span> หากร้านค้าหรือบริการทั่วไปรองรับการชำระเงินผ่านระบบบล็อกเชนอย่างถูกกฎหมาย ข้าพเจ้าจะเลือกใช้งานอย่างแน่นอน</li>
+              <li><span class="item-code">INT4:</span> ข้าพเจ้าตั้งใจจะศึกษาและติดตามพัฒนาการของเทคโนโลยีบล็อกเชนเพื่อนำมาบริหารจัดการการเงินอย่างต่อเนื่อง</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODEL 3: PROTECTION MOTIVATION & COPING MODEL (FIXED & COMPLETE)      -->
+  <!-- ===================================================================== -->
+  <div id="model-3" class="model-section">
+    <div class="section-header">
+      <h2>รูปแบบที่ 3: โมเดลแรงจูงใจในการป้องกันและรับมือความเสี่ยง (Protection Motivation &amp; Coping Model)</h2>
+      <button class="btn btn-download no-print" onclick="downloadSVGAsPNG('svg-fw3', 'Framework_3_PMT_Coping_Model.png')">📥 ดาวน์โหลดแผนภาพที่ 3 (.PNG)</button>
+    </div>
+
+    <div class="model-desc">
+      <strong>แนวคิดหลัก:</strong> ประยุกต์ทฤษฎีแรงจูงใจในการป้องกัน (Protection Motivation Theory: PMT) โดยแยกมิติของการบริหารจัดการความเสี่ยงออกเป็น 2 ส่วนชัดเจน ได้แก่ <strong>1) ประสิทธิภาพการป้องกันความเสี่ยงด้วยระบบ (System Efficacy)</strong> และ <strong>2) ทักษะการควบคุมความเสี่ยงด้วยตนเอง (Self-Efficacy)</strong> ซึ่งเชื่อมโยงกับทัศนคติเชิงความมั่นคงทางการเงินและส่งผลต่อความตั้งใจในการยอมรับบล็อกเชน
+    </div>
+
+    <!-- SVG 3 (Corrected Layout, Spacing, Labels, and Arrow Badges) -->
+    <div class="diagram-box">
+      <svg id="svg-fw3" viewBox="0 0 1000 560" width="1000" height="560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow3-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
+          </marker>
+          <marker id="arrow3-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb" />
+          </marker>
+        </defs>
+        <rect width="1000" height="560" fill="#ffffff" />
+
+        <!-- Section Headers -->
+        <rect x="30" y="15" width="270" height="36" rx="6" fill="#eff6ff" stroke="#bfdbfe" />
+        <text x="165" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#1e40af" text-anchor="middle">ปัจจัยกระตุ้นและแรงผลักดัน (Stimuli &amp; Push)</text>
+
+        <rect x="360" y="15" width="295" height="36" rx="6" fill="#f0fdf4" stroke="#bbf7d0" />
+        <text x="507" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">การบริหารจัดการความเสี่ยงและทัศนคติ</text>
+
+        <rect x="720" y="15" width="250" height="36" rx="6" fill="#faf5ff" stroke="#e9d5ff" />
+        <text x="845" y="38" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#6b21a8" text-anchor="middle">พฤติกรรมความตั้งใจ (Intention)</text>
+
+        <!-- Column 1: Stimuli & Push -->
+        <rect x="30" y="95" width="270" height="125" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+        <text x="165" y="128" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">1. ตัวกระตุ้นด้านความคุ้มค่า (VIS)</text>
+        <text x="165" y="150" font-family="Sarabun, sans-serif" font-size="13" fill="#475569" text-anchor="middle">(Value &amp; Incentive Stimulus)</text>
+        <text x="165" y="175" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• ค่าธรรมเนียมต่ำ / ชำระดุลแบบ Real-time</text>
+        <text x="165" y="195" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• เงินดิจิทัลกำหนดเงื่อนไขได้อัตโนมัติ</text>
+
+        <rect x="30" y="310" width="270" height="125" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+        <text x="165" y="343" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">2. แรงผลักจากความเสี่ยงระบบรวมศูนย์</text>
+        <text x="165" y="365" font-family="Sarabun, sans-serif" font-size="13" fill="#475569" text-anchor="middle">(Centralized System Risk Push: CRP)</text>
+        <text x="165" y="390" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• การลดค่าของเงินเฟียต (Fiat Inflation)</text>
+        <text x="165" y="410" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• จุดเปราะบางของตัวกลาง (Single Point of Failure)</text>
+
+        <!-- Column 2: Coping & Attitude (Wider boxes & 65px vertical gaps for clear arrows) -->
+        <rect x="360" y="65" width="295" height="105" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" />
+        <text x="507" y="96" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#14532d" text-anchor="middle">3. ประสิทธิภาพการป้องกันความเสี่ยงของระบบ</text>
+        <text x="507" y="118" font-family="Sarabun, sans-serif" font-size="12.5" fill="#166534" text-anchor="middle">(System Risk Mitigation Efficacy: SME)</text>
+        <text x="507" y="143" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• ความปลอดภัยจาก Consensus &amp; Immutability</text>
+
+        <rect x="360" y="235" width="295" height="105" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" />
+        <text x="507" y="266" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#14532d" text-anchor="middle">4. ทักษะการควบคุมความเสี่ยงด้วยตนเอง</text>
+        <text x="507" y="288" font-family="Sarabun, sans-serif" font-size="12.5" fill="#166534" text-anchor="middle">(Self-Custody &amp; Risk Control: SRC)</text>
+        <text x="507" y="313" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• ความมั่นใจในการดูแล Private Key / Wallet</text>
+
+        <rect x="360" y="405" width="295" height="105" rx="8" fill="#eff6ff" stroke="#0284c7" stroke-width="2" />
+        <text x="507" y="436" font-family="Sarabun, sans-serif" font-size="14.5" font-weight="bold" fill="#0c4a6e" text-anchor="middle">5. ทัศนคติเชิงความมั่นคงทางการเงิน</text>
+        <text x="507" y="458" font-family="Sarabun, sans-serif" font-size="12.5" fill="#0369a1" text-anchor="middle">(Sound Money &amp; Digital Attitude: ATT)</text>
+        <text x="507" y="483" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• มุมมองเชิงบวกต่อสินทรัพย์ดิจิทัลไร้ตัวกลาง</text>
+
+        <!-- Column 3: Intention (Complete with Target Group Tag) -->
+        <rect x="720" y="205" width="250" height="165" rx="8" fill="#faf5ff" stroke="#7e22ce" stroke-width="2.5" />
+        <text x="845" y="245" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#4c1d95" text-anchor="middle">6. ความตั้งใจในการยอมรับ</text>
+        <text x="845" y="269" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#4c1d95" text-anchor="middle">เทคโนโลยีบล็อกเชน</text>
+        <text x="845" y="293" font-family="Sarabun, sans-serif" font-size="14" fill="#581c87" text-anchor="middle">เพื่อการชำระเงินและการเก็บออม</text>
+        <text x="845" y="317" font-family="Sarabun, sans-serif" font-size="13" font-weight="bold" fill="#6b21a8" text-anchor="middle">(Intention to Adopt: INT)</text>
+        <text x="845" y="343" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">[First Jobber / Blockchain User]</text>
+
+        <!-- Arrows with Clean Background Badges -->
+        <!-- H1: Box 1 to Box 3 -->
+        <line x1="300" y1="145" x2="356" y2="122" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow3-green)" />
+        <rect x="307" y="108" width="42" height="20" rx="3" fill="#ffffff" />
+        <text x="328" y="122" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H1 (+)</text>
+
+        <!-- H2: Box 2 to Box 4 -->
+        <line x1="300" y1="350" x2="356" y2="300" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow3-green)" />
+        <rect x="306" y="302" width="42" height="20" rx="3" fill="#ffffff" />
+        <text x="327" y="316" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H2 (+)</text>
+
+        <!-- H3: Box 4 to Box 3 (Vertical Upward) -->
+        <line x1="507" y1="235" x2="507" y2="174" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrow3-blue)" />
+        <rect x="480" y="195" width="54" height="20" rx="4" fill="#eff6ff" stroke="#93c5fd" />
+        <text x="507" y="209" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8" text-anchor="middle">H3 (+)</text>
+
+        <!-- H4: Box 2 to Box 5 -->
+        <line x1="300" y1="395" x2="356" y2="445" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow3-green)" />
+        <rect x="306" y="422" width="42" height="20" rx="3" fill="#ffffff" />
+        <text x="327" y="436" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H4 (+)</text>
+
+        <!-- H7: Box 4 to Box 5 (Vertical Downward) -->
+        <line x1="507" y1="340" x2="507" y2="401" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrow3-blue)" />
+        <rect x="480" y="360" width="54" height="20" rx="4" fill="#eff6ff" stroke="#93c5fd" />
+        <text x="507" y="374" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8" text-anchor="middle">H7 (+)</text>
+
+        <!-- H5: Box 3 to Box 6 (Diagonal Downward with clean white badge) -->
+        <line x1="655" y1="120" x2="716" y2="235" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow3-green)" />
+        <rect x="664" y="162" width="46" height="20" rx="4" fill="#ffffff" stroke="#bbf7d0" />
+        <text x="687" y="176" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H5 (+)</text>
+
+        <!-- H6: Box 4 to Box 6 (Horizontal with clean white badge) -->
+        <line x1="655" y1="287" x2="716" y2="287" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow3-green)" />
+        <rect x="662" y="262" width="46" height="20" rx="4" fill="#ffffff" />
+        <text x="685" y="276" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H6 (+)</text>
+
+        <!-- H8: Box 5 to Box 6 (Diagonal Upward with clean white badge - NO OVERLAP) -->
+        <line x1="655" y1="455" x2="716" y2="340" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow3-green)" />
+        <rect x="664" y="390" width="46" height="20" rx="4" fill="#ffffff" stroke="#bbf7d0" />
+        <text x="687" y="404" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H8 (+)</text>
+      </svg>
+    </div>
+
+    <!-- 3-Column Table 3 -->
+    <div class="table-title">
+      <span>ตารางที่ 3: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 3: Protection Motivation &amp; Coping Model)</span>
+      <span class="scale-badge">มาตรวัด Likert Scale 5 ระดับ (5 = เห็นด้วยอย่างยิ่ง ถึง 1 = ไม่เห็นด้วยอย่างยิ่ง)</span>
+    </div>
+    <table class="three-col-table">
+      <thead>
+        <tr>
+          <th class="col-var">1. ตัวแปรแต่ละรูปแบบ<br>(Variables, Roles &amp; References)</th>
+          <th class="col-def">2. นิยามของแต่ละตัวแปร<br>(Operational Definitions)</th>
+          <th class="col-items">3. ข้อคำถามที่ต้องใช้ในแต่ละตัวแปร<br>(Questionnaire Items)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="var-name">1. ตัวกระตุ้นด้านความคุ้มค่าและผลลัพธ์</span>
+            <span class="var-en">(Value &amp; Incentive Stimulus: VIS)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรอิสระ (Independent)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Tavera-Mesías et al. (2023); Zheng et al. (2024); กนิน รัตนพงศ์ (2567)
+            </div>
+          </td>
+          <td>ระดับการรับรู้ถึงสิ่งเร้าด้านความคุ้มค่าและผลลัพธ์ที่เป็นรูปธรรม (Outcome-oriented) จากการใช้บล็อกเชน เช่น การลดต้นทุนค่าธรรมเนียมตัวกลาง ความรวดเร็วในการชำระดุล การได้รับผลตอบแทนที่ชนะเงินเฟ้อ และการตั้งเงื่อนไขธุรกรรมอัตโนมัติ (Programmable Money)</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">VIS1:</span> ความคุ้มค่าจากการลดค่าธรรมเนียมตัวกลางในการโอนเงิน เป็นสิ่งกระตุ้นสำคัญให้ข้าพเจ้าสนใจใช้บล็อกเชน</li>
+              <li><span class="item-code">VIS2:</span> ความรวดเร็วในการชำระดุลธุรกรรมแทบจะในทันที (Real-time Settlement) ตอบโจทย์ความต้องการทางการเงินของข้าพเจ้า</li>
+              <li><span class="item-code">VIS3:</span> โอกาสในการได้รับผลตอบแทนจากการเก็บออมที่ชนะเงินเฟ้อ เป็นแรงจูงใจให้ข้าพเจ้าสนใจสินทรัพย์ดิจิทัลบนบล็อกเชน</li>
+              <li><span class="item-code">VIS4:</span> ประสิทธิภาพของการตั้งเงื่อนไขการออมหรือการจ่ายเงินอัตโนมัติ (Programmable Money) สร้างความคุ้มค่าให้แก่ข้าพเจ้า</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">2. แรงผลักจากความเสี่ยงของระบบรวมศูนย์</span>
+            <span class="var-en">(Centralized System Risk Push: CRP)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรอิสระ (Independent)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Rothbard (2008); Ammous (2018); สิรินทร์ รัตนากร (2565)
+            </div>
+          </td>
+          <td>ระดับความตระหนักถึงจุดอ่อนและความเสี่ยงของระบบการเงินแบบรวมศูนย์ (Centralization Risks) ได้แก่ ปัญหาจุดอ่อนร่วงโรยเพียงจุดเดียวหากเซิร์ฟเวอร์กลางล่ม (Single Point of Failure) ความเสี่ยงจากอำนาจผูกขาด (Monopoly) และการเสื่อมค่าของเงินฝากจากภาวะเงินเฟ้อ</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">CRP1:</span> ข้าพเจ้ากังวลว่าระบบธนาคารแบบรวมศูนย์มีจุดอ่อนที่หากเซิร์ฟเวอร์กลางล่ม จะทำให้ไม่สามารถทำธุรกรรมได้เลย (Single Point of Failure)</li>
+              <li><span class="item-code">CRP2:</span> ข้าพเจ้ารู้สึกว่าการฝากเงินไว้กับสถาบันตัวกลางเพียงอย่างเดียว มีความเสี่ยงด้านความโปร่งใสและอำนาจผูกขาด (Monopoly)</li>
+              <li><span class="item-code">CRP3:</span> การเสื่อมค่าของอำนาจซื้อในระบบเงินเฟียต (Fiat Money) ผลักดันให้ข้าพเจ้าไม่ต้องการพึ่งพาระบบการเงินแบบเดิมเพียงทางเดียว</li>
+              <li><span class="item-code">CRP4:</span> ความเสี่ยงจากการที่บัญชีการเงินแบบรวมศูนย์อาจถูกจำกัดสิทธิ์หรือระงับธุรกรรม ทำให้ข้าพเจ้ามองหาทางเลือกแบบกระจายศูนย์</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">3. ประสิทธิภาพการป้องกันความเสี่ยงของระบบ</span>
+            <span class="var-en">(System Risk Mitigation Efficacy: SME)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรส่งผ่าน (Mediator - Coping)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Rogers (1975); Yli-Huumo et al. (2016); Marikyan et al. (2022); Kharche et al. (2024)
+            </div>
+          </td>
+          <td>ระดับความเชื่อมั่นของผู้ใช้งานว่าสถาปัตยกรรมทางเทคนิคของบล็อกเชน (การกระจายข้อมูลไปทุกโหนด การเข้ารหัสลับ และคุณสมบัติความแก้ไขไม่ได้ของข้อมูล) มีประสิทธิภาพสูงในการปกป้องทรัพย์สินและป้องกันการปลอมแปลงหรือการใช้จ่ายซ้ำซ้อน</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">SME1:</span> ข้าพเจ้าเชื่อว่าระบบบล็อกเชนมีประสิทธิภาพสูงในการป้องกันปัญหาการใช้จ่ายเงินซ้ำซ้อนและการโกงในระบบดิจิทัล</li>
+              <li><span class="item-code">SME2:</span> การกระจายสำเนาข้อมูลไปยังคอมพิวเตอร์ทุกโหนด (Node) ทั่วโลก ช่วยป้องกันความเสี่ยงที่ข้อมูลทางการเงินจะสูญหายได้จริง</li>
+              <li><span class="item-code">SME3:</span> คุณสมบัติความไม่สามารถแก้ไขข้อมูลย้อนหลังได้ (Immutability) ช่วยป้องกันการทุจริตและปลอมแปลงบัญชีได้อย่างมีประสิทธิภาพ</li>
+              <li><span class="item-code">SME4:</span> ข้าพเจ้ามั่นใจว่าสถาปัตยกรรมความปลอดภัยด้วยการเข้ารหัสลับของบล็อกเชน สามารถปกป้องทรัพย์สินดิจิทัลได้เป็นอย่างดี</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">4. ทักษะการควบคุมความเสี่ยงด้วยตนเอง</span>
+            <span class="var-en">(Self-Custody &amp; Risk Control: SRC)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรส่งผ่าน (Mediator - Coping)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Bandura (1977); Marikyan et al. (2022); จิราภรณ์ แสงทอง (2566)
+            </div>
+          </td>
+          <td>ระดับความเชื่อมั่นในความสามารถของตนเอง (Self-Efficacy) ในการบริหารจัดการและควบคุมความเสี่ยงในการใช้งานบล็อกเชน เช่น การตั้งค่ากระเป๋าเงินดิจิทัล (Crypto Wallet) การเก็บรักษารหัสกู้คืนข้อมูล และการคัดกรองกลโกงทางไซเบอร์ด้วยตนเอง</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">SRC1:</span> ข้าพเจ้ามีความมั่นใจในทักษะของตนเองในการตั้งค่าและใช้งานกระเป๋าเงินดิจิทัล (Crypto Wallet) ได้อย่างปลอดภัย</li>
+              <li><span class="item-code">SRC2:</span> ข้าพเจ้าสามารถจัดการเก็บรักษารหัสกู้คืนข้อมูล (Seed Phrase / Private Key) ด้วยตนเองโดยไม่ต้องพึ่งพาเจ้าหน้าที่ธนาคาร</li>
+              <li><span class="item-code">SRC3:</span> ข้าพเจ้ามีความรู้ความเข้าใจเพียงพอที่จะคัดกรองและหลีกเลี่ยงลิงก์ปลอมหรือกลโกงทางไซเบอร์ในโลกบล็อกเชน</li>
+              <li><span class="item-code">SRC4:</span> หากเกิดปัญหาทางเทคนิคเบื้องต้นในการใช้งานบล็อกเชน ข้าพเจ้ามั่นใจว่าสามารถค้นหาวิธีแก้ไขและรับมือได้ด้วยตนเอง</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">5. ทัศนคติเชิงความมั่นคงทางการเงิน</span>
+            <span class="var-en">(Sound Money &amp; Digital Attitude: ATT)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรส่งผ่าน (Mediator)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Ammous (2018); García-Monleón et al. (2023); สุนิสา รักษา และคณะ (2566); พงศธร กิตติมา และคณะ (2567)
+            </div>
+          </td>
+          <td>ระดับความรู้สึก ความเชื่อ และการตอบสนองเชิงบวกของผู้ใช้งานที่มีต่อแนวคิดเงินที่มั่นคง (Sound Money) และการนำเทคโนโลยีบล็อกเชนมาใช้บริหารจัดการการชำระเงินและการเก็บออมอย่างโปร่งใสไร้ตัวกลาง</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">ATT1:</span> ข้าพเจ้ามองว่าการใช้เทคโนโลยีบล็อกเชนเพื่อการชำระเงินและการเก็บออมเป็นแนวคิดที่ฉลาดและทันสมัย</li>
+              <li><span class="item-code">ATT2:</span> ข้าพเจ้ามีทัศนคติเชิงบวกต่อแนวคิด "เงินที่มั่นคง" (Sound Money) ที่ถูกจำกัดปริมาณและทำงานผ่านรหัสคอมพิวเตอร์</li>
+              <li><span class="item-code">ATT3:</span> ข้าพเจ้ารู้สึกพึงพอใจและสบายใจหากสามารถบริหารจัดการเงินออมผ่านระบบการเงินดิจิทัลที่โปร่งใสและไร้ตัวกลาง</li>
+              <li><span class="item-code">ATT4:</span> โดยรวมแล้ว ข้าพเจ้าเห็นด้วยว่าการนำบล็อกเชนมาใช้ในชีวิตประจำวันเป็นทิศทางที่ดีต่ออนาคตทางการเงินของข้าพเจ้า</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="var-name">6. ความตั้งใจในการยอมรับบล็อกเชน</span>
+            <span class="var-en">(Intention to Adopt: INT)</span>
+            <div class="var-meta">
+              <strong>บทบาท:</strong> ตัวแปรตาม (Dependent)<br>
+              <strong>อ้างอิง:</strong> ดัดแปลงจาก Venkatesh et al. (2003); Islam et al. (2023); Gálvez-Sánchez et al. (2026)
+            </div>
+          </td>
+          <td>ระดับความมุ่งมั่น การวางแผน และแนวโน้มความน่าจะเป็นที่บุคคลจะตัดสินใจเลือกใช้และปรับใช้เทคโนโลยีบล็อกเชนเป็นช่องทางในการชำระเงินและการเก็บออมทั้งในปัจจุบันและอนาคต</td>
+          <td>
+            <ul class="item-list">
+              <li><span class="item-code">INT1:</span> ข้าพเจ้ามีความตั้งใจที่จะนำเทคโนโลยีบล็อกเชนมาใช้เป็นช่องทางในการชำระเงินหรือโอนสินทรัพย์ในอนาคต</li>
+              <li><span class="item-code">INT2:</span> ข้าพเจ้าวางแผนที่จะใช้สินทรัพย์ดิจิทัลบนระบบบล็อกเชนเป็นหนึ่งในทางเลือกสำหรับการเก็บออมระยะยาว</li>
+              <li><span class="item-code">INT3:</span> หากร้านค้าหรือบริการทั่วไปรองรับการชำระเงินผ่านระบบบล็อกเชนอย่างถูกกฎหมาย ข้าพเจ้าจะเลือกใช้งานอย่างแน่นอน</li>
+              <li><span class="item-code">INT4:</span> ข้าพเจ้าตั้งใจจะศึกษาและติดตามพัฒนาการของเทคโนโลยีบล็อกเชนเพื่อนำมาบริหารจัดการการเงินอย่างต่อเนื่อง</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+function downloadSVGAsPNG(svgId, filename) {
+  const svgElement = document.getElementById(svgId);
+  const serializer = new XMLSerializer();
+  let svgString = serializer.serializeToString(svgElement);
+
+  const svgWidth = parseInt(svgElement.getAttribute('width')) || 1000;
+  const svgHeight = parseInt(svgElement.getAttribute('height')) || 520;
+
+  const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+  const URL = window.URL || window.webkitURL || window;
+  const blobURL = URL.createObjectURL(svgBlob);
+
+  const image = new Image();
+  image.onload = function() {
+    const canvas = document.createElement('canvas');
+    const scale = 2; // 2x High Resolution for Word/PowerPoint
+    canvas.width = svgWidth * scale;
+    canvas.height = svgHeight * scale;
+    const context = canvas.getContext('2d');
+    context.scale(scale, scale);
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, svgWidth, svgHeight);
+    context.drawImage(image, 0, 0, svgWidth, svgHeight);
+    URL.revokeObjectURL(blobURL);
+
+    const pngUrl = canvas.toDataURL('image/png');
+    const downloadLink = document.createElement('a');
+    downloadLink.href = pngUrl;
+    downloadLink.download = filename;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+  image.src = blobURL;
+}
+</script>
+</body>
+</html>

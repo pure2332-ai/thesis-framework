@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>สรุปกรอบแนวคิดการวิจัย นิยามตัวแปร และข้อคำถาม (ทั้ง 3 รูปแบบ)</title>
+<title>สรุปกรอบแนวคิดการวิจัย การทดสอบตัวแปรกลาง นิยามตัวแปร และข้อคำถาม (ทั้ง 3 รูปแบบ)</title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -16,6 +16,10 @@
 
   * {
     box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -48,6 +52,19 @@
     font-weight: 700;
     font-size: 1rem;
     color: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .version-badge {
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 0.78rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
   }
 
   .nav-buttons {
@@ -77,6 +94,14 @@
   }
   .btn-nav:hover {
     background: #475569;
+  }
+
+  .btn-ref {
+    background: #0f766e;
+    color: #ffffff;
+  }
+  .btn-ref:hover {
+    background: #115e59;
   }
 
   .btn-print {
@@ -133,6 +158,7 @@
     margin-bottom: 36px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    scroll-margin-top: 72px;
   }
 
   .section-header {
@@ -179,15 +205,17 @@
     height: auto;
   }
 
-  /* 3-Column Table Styling */
+  /* Table Titles & Badges */
   .table-title {
     font-size: 1.05rem;
     font-weight: 700;
     color: #0f172a;
-    margin: 20px 0 10px 0;
+    margin: 24px 0 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .scale-badge {
@@ -200,6 +228,90 @@
     border: 1px solid #bfdbfe;
   }
 
+  .med-badge {
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: #f0fdf4;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #bbf7d0;
+  }
+
+  /* Hypothesis & Mediation Table Styling */
+  table.hypo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    margin-bottom: 28px;
+    font-size: 0.88rem;
+  }
+
+  table.hypo-table th,
+  table.hypo-table td {
+    border: 1px solid #94a3b8;
+    padding: 10px 14px;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  table.hypo-table thead th {
+    background-color: #0f766e;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.92rem;
+  }
+
+  table.hypo-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  table.hypo-table tr.mediation-highlight {
+    background-color: #f0fdf4 !important;
+  }
+
+  .h-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    margin-right: 4px;
+    margin-bottom: 3px;
+  }
+  .h-pos {
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+  }
+  .h-neg {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+  }
+  .h-mod {
+    background: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fcd34d;
+  }
+  .h-med {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #93c5fd;
+  }
+
+  a.doi-link {
+    color: #2563eb;
+    text-decoration: none;
+    word-break: break-all;
+    font-size: 0.82rem;
+  }
+  a.doi-link:hover {
+    text-decoration: underline;
+  }
+
+  /* 3-Column Table Styling */
   table.three-col-table {
     width: 100%;
     border-collapse: collapse;
@@ -286,6 +398,45 @@
     margin-right: 4px;
   }
 
+  /* Reference List Section */
+  .ref-category {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 22px 0 12px 0;
+    padding: 8px 12px;
+    background: #eff6ff;
+    border-left: 4px solid #1e3a8a;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ref-count {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e40af;
+    background: #dbeafe;
+    padding: 2px 8px;
+    border-radius: 12px;
+  }
+
+  .ref-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 16px 0;
+  }
+
+  .ref-list li {
+    padding-left: 32px;
+    text-indent: -32px;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
   /* Print Styles (A4 Landscape) */
   @media print {
     @page {
@@ -295,7 +446,7 @@
 
     body {
       background: #ffffff;
-      font-size: 11.5pt;
+      font-size: 11pt;
     }
 
     .no-print {
@@ -338,21 +489,24 @@
     }
 
     svg {
-      max-height: 360px;
+      max-height: 350px;
       width: auto;
     }
 
+    table.hypo-table,
     table.three-col-table {
-      font-size: 10.5pt;
+      font-size: 10pt;
       page-break-before: always;
       break-before: page;
     }
 
+    table.hypo-table tr,
     table.three-col-table tr {
       page-break-inside: avoid;
       break-inside: avoid;
     }
 
+    table.hypo-table thead th,
     table.three-col-table thead th {
       background-color: #e2e8f0 !important;
       color: #000000 !important;
@@ -366,11 +520,15 @@
 
 <!-- Sticky Control Bar -->
 <div class="top-bar no-print">
-  <div class="top-bar-title">เอกสารนำเสนออาจารย์ที่ปรึกษา: กรอบแนวคิด นิยามตัวแปร และข้อคำถาม (3 รูปแบบ) <span style="background:#2563eb; padding:3px 8px; border-radius:4px; font-size:0.8rem; margin-left:8px;">v1.0 | 2026-10-18 20:56</span></div>
+  <div class="top-bar-title">
+    <span>เอกสารนำเสนออาจารย์ที่ปรึกษา: กรอบแนวคิด การทดสอบตัวแปรกลาง และข้อคำถาม (3 รูปแบบ)</span>
+    <span class="version-badge">v1.1 | 2026-10-24 11:33</span>
+  </div>
   <div class="nav-buttons">
     <a href="#model-1" class="btn btn-nav">รูปแบบที่ 1 (S-O-R)</a>
     <a href="#model-2" class="btn btn-nav">รูปแบบที่ 2 (Moderator)</a>
     <a href="#model-3" class="btn btn-nav">รูปแบบที่ 3 (PMT)</a>
+    <a href="#ref-section" class="btn btn-ref">📚 รายการอ้างอิง (APA 7th)</a>
     <button class="btn btn-print" onclick="window.print()">🖨️ พิมพ์เอกสาร / บันทึกเป็น PDF (A4 แนวนอน)</button>
   </div>
 </div>
@@ -379,11 +537,11 @@
 
   <!-- Document Header -->
   <div class="doc-header">
-    <h1>การเปรียบเทียบกรอบแนวคิดการวิจัย นิยามปฏิบัติการ และข้อคำถามในแบบสอบถาม (3 รูปแบบ)</h1>
+    <h1>การเปรียบเทียบกรอบแนวคิดการวิจัย การทดสอบตัวแปรกลาง นิยามปฏิบัติการ และข้อคำถาม (3 รูปแบบ)</h1>
     <p><strong>หัวข้อวิทยานิพนธ์:</strong> ปัจจัยที่มีอิทธิพลต่อความตั้งใจในการยอมรับเทคโนโลยีบล็อกเชนเพื่อการชำระเงินและการเก็บออมในวัยเริ่มทำงาน (First Jobber) และกลุ่มผู้ใช้งานเทคโนโลยีบล็อกเชน (Blockchain User)</p>
     <p><strong>ผู้วิจัย:</strong> นายพุฒิพงศ์ วงศ์ชัยรุ่งเรือง | <strong>รหัสนักศึกษา:</strong> 681220085 | <strong>มหาวิทยาลัยศิลปากร</strong></p>
-    <p><strong>สถิติที่ใช้ในการวิเคราะห์:</strong> แบบจำลองสมการโครงสร้าง (Structural Equation Modeling: SEM) | <strong>จำนวนข้อคำถามวัดตัวแปร:</strong> 6 ตัวแปร × 4 ข้อ = 24 ข้อต่อรูปแบบ</p>
-    <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;"><strong>เวอร์ชันเอกสาร:</strong> Version 1.0 (บันทึกเมื่อ: 2026-10-18 เวลา 20:56 น.)</p>
+    <p><strong>สถิติที่ใช้ในการวิเคราะห์:</strong> แบบจำลองสมการโครงสร้าง (Structural Equation Modeling: SEM) และการวิเคราะห์ตัวแปรกลางด้วยวิธี Bootstrapping | <strong>จำนวนข้อคำถามวัดตัวแปร:</strong> 6 ตัวแปร × 4 ข้อ = 24 ข้อต่อรูปแบบ</p>
+    <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;"><strong>เวอร์ชันเอกสาร:</strong> Version 1.1 (บันทึกเมื่อ: 2026-10-24 เวลา 11:33 น. — เพิ่มตารางวิเคราะห์ตัวแปรกลาง/ตัวแปรกำกับ และคลังเอกสารอ้างอิง APA 7th Edition ฉบับสมบูรณ์)</p>
   </div>
 
   <!-- ===================================================================== -->
@@ -396,7 +554,7 @@
     </div>
 
     <div class="model-desc">
-      <strong>แนวคิดหลัก:</strong> ประยุกต์ทฤษฎีสิ่งเร้า-กระบวนการภายใน-การตอบสนอง (Stimulus-Organism-Response: S-O-R) โดยกำหนดให้ปัจจัยแวดล้อมทางเศรษฐกิจ สังคม และนวัตกรรมทำหน้าที่เป็น <strong>"ตัวกระตุ้น (Stimuli)"</strong> ที่ส่งผลผ่าน <strong>"ความสามารถในการจัดการความเสี่ยง"</strong> และ <strong>"การรับรู้ความเสี่ยง" (Organism)</strong> ไปสู่ความตั้งใจในการยอมรับเทคโนโลยีบล็อกเชน (Response)
+      <strong>แนวคิดหลักและการทำงานของตัวแปรกลาง:</strong> ประยุกต์ทฤษฎีสิ่งเร้า-กระบวนการภายใน-การตอบสนอง (Stimulus-Organism-Response: S-O-R) โดยกำหนดให้ปัจจัยแวดล้อมทางเศรษฐกิจ สังคม และนวัตกรรมทำหน้าที่เป็น <strong>"ตัวกระตุ้น (Stimuli)"</strong> ที่ส่งผลผ่านตัวแปรกลาง (Organism Mediators) 2 ตัว คือ <strong>"การรับรู้ความเสี่ยงและภัยคุกคาม (PRT)"</strong> และ <strong>"ความสามารถในการจัดการความเสี่ยง (RMC)"</strong> โดยเมื่อผู้ใช้งานตระหนักถึงความเสี่ยง (ตัวแปรที่ 5) จะกระตุ้นเชิงบวก (H5+) ให้นำทักษะการจัดการความเสี่ยง (ตัวแปรที่ 4) มาใช้รับมือ ก่อนส่งผลต่อไปยังความตั้งใจในการยอมรับเทคโนโลยีบล็อกเชน (Response)
     </div>
 
     <!-- SVG 1 -->
@@ -491,9 +649,99 @@
       </svg>
     </div>
 
-    <!-- 3-Column Table 1 -->
+    <!-- Hypothesis & Mediation Table 1.1 -->
     <div class="table-title">
-      <span>ตารางที่ 1: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 1: S-O-R &amp; Risk Management Model)</span>
+      <span>ตารางที่ 1.1: สรุปสมมติฐานการวิจัยและการทดสอบตัวแปรกลาง (Mediation Analysis) - รูปแบบที่ 1</span>
+      <span class="med-badge">สถิติที่ใช้ทดสอบตัวแปรกลาง: SEM Bootstrapping (5,000 Resamples)</span>
+    </div>
+    <table class="hypo-table">
+      <thead>
+        <tr>
+          <th style="width: 28%;">เส้นสมมติฐาน / เส้นทางตัวแปรกลาง</th>
+          <th style="width: 34%;">กลไกทางทฤษฎีและบทบาทในการทดสอบทางสถิติ (SEM)</th>
+          <th style="width: 38%;">งานวิจัยอ้างอิงที่เคยทดสอบความสัมพันธ์นี้ (พร้อมลิงก์เปเปอร์)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="h-tag h-pos">H1 (+)</span> ตัวกระตุ้นทางเศรษฐกิจ (MES) &rarr; ความสามารถในการจัดการความเสี่ยง (RMC)</td>
+          <td><strong>เส้นทางขาเข้าตัวแปรกลางที่ 4:</strong> แรงกดดันจากภาวะเงินเฟ้อและข้อจำกัดของธนาคารดั้งเดิม กระตุ้นให้ผู้ใช้งานศึกษาและพัฒนาทักษะการจัดการความเสี่ยงในสินทรัพย์ดิจิทัล</td>
+          <td>
+            • <strong>Ammous (2018)</strong> (<em>The Bitcoin Standard</em>)<br>
+            • <strong>Dabbous et al. (2022):</strong> <a class="doi-link" href="https://doi.org/10.1108/JRF-10-2021-0169" target="_blank">https://doi.org/10.1108/JRF-10-2021-0169</a><br>
+            • <strong>Yamout et al. (2025):</strong> <a class="doi-link" href="https://doi.org/10.55214/2576-8484.v9i11.11238" target="_blank">https://doi.org/10.55214/2576-8484.v9i11.11238</a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="h-tag h-pos">H2 (+)</span> ตัวกระตุ้นทางสังคม (SOS) &rarr; ความสามารถในการจัดการความเสี่ยง (RMC)</td>
+          <td><strong>เส้นทางขาเข้าตัวแปรกลางที่ 4:</strong> การแบ่งปันความรู้จาก KOLs และคอมมูนิตี้บล็อกเชน ช่วยเพิ่มพูนทักษะและความมั่นใจในการจัดการความเสี่ยงของผู้ใช้งาน</td>
+          <td>
+            • <strong>Handoko (2026):</strong> <a class="doi-link" href="https://www.mdpi.com/1911-8074/19/5/343" target="_blank">https://www.mdpi.com/1911-8074/19/5/343</a><br>
+            • <strong>อภิสิทธิ์ วงศ์วิวัฒน์ (2565)</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="h-tag h-neg">H3 (-)</span> ตัวกระตุ้นทางสังคม (SOS) &rarr; การรับรู้ความเสี่ยงและภัยคุกคาม (PRT)</td>
+          <td><strong>เส้นทางขาเข้าตัวแปรกลางที่ 5:</strong> ข้อมูลรีวิวและประสบการณ์จากกลุ่มสังคมออนไลน์ (Social Proof) ช่วยลดความคลุมเครือและลดระดับความกังวลด้านความเสี่ยงลง</td>
+          <td>
+            • <strong>Yamout et al. (2025):</strong> <a class="doi-link" href="https://doi.org/10.55214/2576-8484.v9i11.11238" target="_blank">https://doi.org/10.55214/2576-8484.v9i11.11238</a><br>
+            • <strong>ณัฐนิชา ศิริวรรณ และคณะ (2567)</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="h-tag h-neg">H4 (-)</span> ตัวกระตุ้นเชิงนวัตกรรม (TES) &rarr; การรับรู้ความเสี่ยงและภัยคุกคาม (PRT)</td>
+          <td><strong>เส้นทางขาเข้าตัวแปรกลางที่ 5:</strong> ความโปร่งใสที่ตรวจสอบย้อนหลังได้และการทำงานอัตโนมัติของ Smart Contracts ช่วยลดการรับรู้ความเสี่ยงด้านการทุจริต</td>
+          <td>
+            • <strong>Xie et al. (2024):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.chb.2023.108005" target="_blank">https://doi.org/10.1016/j.chb.2023.108005</a><br>
+            • <strong>วิภาวดี สมบูรณ์ (2567)</strong><br>
+            • <strong>Schär (2021):</strong> <a class="doi-link" href="https://doi.org/10.20955/r.103.153-74" target="_blank">https://doi.org/10.20955/r.103.153-74</a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="h-tag h-pos">H5 (+)</span> การรับรู้ความเสี่ยงและภัยคุกคาม (PRT) &rarr; ความสามารถในการจัดการความเสี่ยง (RMC)</td>
+          <td><strong>เส้นทางเชื่อมระหว่างตัวแปรกลาง (Serial Mediation Link):</strong> เมื่อบุคคลรับรู้ถึงความเสี่ยงและภัยคุกคาม (กล่องที่ 5) จะเป็นแรงกระตุ้นทางบวก (+) ให้ต้องงัดมาตรการและทักษะการจัดการความเสี่ยง (กล่องที่ 4) ขึ้นมารับมือ</td>
+          <td>
+            • <strong>Marikyan et al. (2022):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.chb.2022.107207" target="_blank">https://doi.org/10.1016/j.chb.2022.107207</a><br>
+            • <strong>Rogers (1975)</strong> (<em>Cognitive Coping Appraisal</em>)
+          </td>
+        </tr>
+        <tr>
+          <td><span class="h-tag h-pos">H6 (+)</span> ความสามารถในการจัดการความเสี่ยง (RMC) &rarr; ความตั้งใจยอมรับบล็อกเชน (INT)</td>
+          <td><strong>เส้นทางขาออกจากตัวแปรกลางที่ 4:</strong> เมื่อผู้ใช้งานมีทักษะบริหารจัดการความเสี่ยงที่ดี (เช่น ดูแล Seed Phrase ได้, ใช้ Stablecoin เป็น) จะส่งผลทางบวกต่อความตั้งใจใช้งานจริง</td>
+          <td>
+            • <strong>Marikyan et al. (2022):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.chb.2022.107207" target="_blank">https://doi.org/10.1016/j.chb.2022.107207</a><br>
+            • <strong>Boubaker et al. (2024):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.techfore.2024.123210" target="_blank">https://doi.org/10.1016/j.techfore.2024.123210</a><br>
+            • <strong>Handoko (2026):</strong> <a class="doi-link" href="https://www.mdpi.com/1911-8074/19/5/343" target="_blank">https://www.mdpi.com/1911-8074/19/5/343</a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="h-tag h-neg">H7 (-)</span> การรับรู้ความเสี่ยงและภัยคุกคาม (PRT) &rarr; ความตั้งใจยอมรับบล็อกเชน (INT)</td>
+          <td><strong>เส้นทางขาออกจากตัวแปรกลางที่ 5:</strong> ความกังวลด้านภัยไซเบอร์ การโอนผิดแล้วดึงเงินคืนไม่ได้ และความไม่ชัดเจนทางกฎหมาย ทำหน้าที่เป็นตัวขัดขวาง (Inhibitor) ความตั้งใจใช้งาน</td>
+          <td>
+            • <strong>Abramova &amp; Böhme (2023)</strong><br>
+            • <strong>จิราภรณ์ แสงทอง (2566)</strong><br>
+            • <strong>Yamout et al. (2025):</strong> <a class="doi-link" href="https://doi.org/10.55214/2576-8484.v9i11.11238" target="_blank">https://doi.org/10.55214/2576-8484.v9i11.11238</a>
+          </td>
+        </tr>
+        <tr class="mediation-highlight">
+          <td><span class="h-tag h-med">Mediation Test</span> <strong>การทดสอบอิทธิพลทางอ้อมผ่านตัวแปรกลางที่ 4 (RMC) และตัวแปรกลางที่ 5 (PRT)</strong></td>
+          <td>
+            <strong>การพิสูจน์บทบาทตัวแปรกลาง (Organism Mediators):</strong> ทดสอบค่า Indirect Effect ด้วยวิธี Bootstrapping ในโปรแกรม SEM แบ่งเป็น:<br>
+            1. <em>Simple Mediation:</em> MES/SOS &rarr; RMC &rarr; INT และ SOS/TES &rarr; PRT &rarr; INT<br>
+            2. <em>Serial Mediation (ตัวแปรกลางต่อเนื่อง):</em> SOS/TES &rarr; PRT &rarr; RMC &rarr; INT
+          </td>
+          <td>
+            • <strong>Gálvez-Sánchez et al. (2026):</strong> <a class="doi-link" href="https://doi.org/10.1108/JHTT-10-2025-0851" target="_blank">https://doi.org/10.1108/JHTT-10-2025-0851</a><br>
+            • <strong>Handoko (2026):</strong> <a class="doi-link" href="https://www.mdpi.com/1911-8074/19/5/343" target="_blank">https://www.mdpi.com/1911-8074/19/5/343</a><br>
+            • <strong>Yamout et al. (2025):</strong> <a class="doi-link" href="https://doi.org/10.55214/2576-8484.v9i11.11238" target="_blank">https://doi.org/10.55214/2576-8484.v9i11.11238</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 3-Column Table 1.2 -->
+    <div class="table-title">
+      <span>ตารางที่ 1.2: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 1: S-O-R &amp; Risk Management Model)</span>
       <span class="scale-badge">มาตรวัด Likert Scale 5 ระดับ (5 = เห็นด้วยอย่างยิ่ง ถึง 1 = ไม่เห็นด้วยอย่างยิ่ง)</span>
     </div>
     <table class="three-col-table">
@@ -633,7 +881,7 @@
     </div>
 
     <div class="model-desc">
-      <strong>แนวคิดหลัก:</strong> มุ่งศึกษาอิทธิพลของตัวกระตุ้นที่มีต่อความไว้วางใจในระบบไร้ตัวกลางและการรับรู้ความเสี่ยง โดยมีจุดเด่นคือการกำหนดให้ <strong>"กลยุทธ์การจัดการความเสี่ยงส่วนบุคคล"</strong> ทำหน้าที่เป็น <strong>ตัวแปรกำกับ (Moderator)</strong> ที่คอยบรรเทาผลกระทบเชิงลบของการรับรู้ความเสี่ยงที่มีต่อความตั้งใจในการยอมรับเทคโนโลยีบล็อกเชน
+      <strong>แนวคิดหลักและการทำงานของตัวแปรกลาง/ตัวแปรกำกับ:</strong> มุ่งศึกษาอิทธิพลของตัวกระตุ้นที่มีต่อตัวแปรกลาง 2 ตัว คือ <strong>"ความไว้วางใจในระบบไร้ตัวกลาง (DTR)"</strong> และ <strong>"การรับรู้ความเสี่ยง (PR)"</strong> โดยมีจุดเด่นคือการกำหนดให้ <strong>"กลยุทธ์การจัดการความเสี่ยงส่วนบุคคล (PRM)"</strong> ทำหน้าที่เป็น <strong>ตัวแปรกำกับ (Moderator)</strong> ที่คอยบรรเทาผลกระทบเชิงลบของการรับรู้ความเสี่ยงที่มีต่อความตั้งใจในการยอมรับเทคโนโลยีบล็อกเชน
     </div>
 
     <!-- SVG 2 -->
@@ -725,9 +973,76 @@
       </svg>
     </div>
 
-    <!-- 3-Column Table 2 -->
+    <!-- Hypothesis, Mediation & Moderation Table 2.1 -->
     <div class="table-title">
-      <span>ตารางที่ 2: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 2: Risk Management as a Moderator Model)</span>
+      <span>ตารางที่ 2.1: สรุปสมมติฐานการวิจัย การทดสอบตัวแปรกลาง (Mediators) และตัวแปรกำกับ (Moderator) - รูปแบบที่ 2</span>
+      <span class="med-badge">สถิติที่ใช้ทดสอบ: SEM Bootstrapping &amp; Moderation Interaction Effect</span>
+    </div>
+    <table class="hypo-table">
+      <thead>
+        <tr>
+          <th style="width: 28%;">เส้นสมมติฐาน / บทบาทตัวแปร</th>
+          <th style="width: 34%;">กลไกทางทฤษฎีและบทบาทในการทดสอบทางสถิติ (SEM)</th>
+          <th style="width: 38%;">งานวิจัยอ้างอิงที่เคยทดสอบความสัมพันธ์นี้ (พร้อมลิงก์เปเปอร์)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="h-tag h-pos">H1 (+)</span> อิสรภาพทางการเงิน (FAS) &rarr; ความไว้วางใจไร้ตัวกลาง (DTR)<br>
+            <span class="h-tag h-neg">H2 (-)</span> อิสรภาพทางการเงิน (FAS) &rarr; การรับรู้ความเสี่ยง (PR)
+          </td>
+          <td><strong>เส้นทางขาเข้าตัวแปรกลางที่ 3 และ 4:</strong> ความเข้าใจในปรัชญา Peer-to-Peer และความต้องการอิสระทางการเงิน ช่วยเสริมสร้างความเชื่อมั่นในกลไกไร้ตัวกลาง (H1+) และลดความกังวลต่อระบบ (H2-)</td>
+          <td>
+            • <strong>Nur Muharam et al. (2023):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.tourman.2023.104761" target="_blank">https://doi.org/10.1016/j.tourman.2023.104761</a><br>
+            • <strong>Nakamoto (2008):</strong> <a class="doi-link" href="https://bitcoin.org/bitcoin.pdf" target="_blank">https://bitcoin.org/bitcoin.pdf</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="h-tag h-pos">H3 (+)</span> ระบบนิเวศบล็อกเชน (BES) &rarr; ความไว้วางใจไร้ตัวกลาง (DTR)<br>
+            <span class="h-tag h-neg">H4 (-)</span> ระบบนิเวศบล็อกเชน (BES) &rarr; การรับรู้ความเสี่ยง (PR)
+          </td>
+          <td><strong>เส้นทางขาเข้าตัวแปรกลางที่ 3 และ 4:</strong> ความพร้อมของโครงสร้างพื้นฐานดิจิทัลและพื้นที่ทดสอบนวัตกรรม (Sandbox) ช่วยสร้างความไว้วางใจ (H3+) และลดการรับรู้ความเสี่ยงของผู้ใช้งาน (H4-)</td>
+          <td>
+            • <strong>Liu et al. (2025):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.techfore.2025.124112" target="_blank">https://doi.org/10.1016/j.techfore.2025.124112</a><br>
+            • <strong>ธนาคารแห่งประเทศไทย (2023)</strong>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="h-tag h-pos">H5 (+)</span> ความไว้วางใจไร้ตัวกลาง (DTR) &rarr; ความตั้งใจยอมรับบล็อกเชน (INT)<br>
+            <span class="h-tag h-neg">H6 (-)</span> การรับรู้ความเสี่ยง (PR) &rarr; ความตั้งใจยอมรับบล็อกเชน (INT)
+          </td>
+          <td><strong>เส้นทางขาออกจากตัวแปรกลางที่ 3 และ 4:</strong> ความไว้วางใจในระบบฉันทามติเป็นแรงผลักดันหลักสู่ความตั้งใจใช้งาน (H5+) ขณะที่การรับรู้ความเสี่ยงทำหน้าที่ยับยั้งความตั้งใจใช้งาน (H6-)</td>
+          <td>
+            • <strong>Shahzad et al. (2024):</strong> <a class="doi-link" href="https://doi.org/10.1057/s41599-023-02528-7" target="_blank">https://doi.org/10.1057/s41599-023-02528-7</a><br>
+            • <strong>Alfar &amp; Xia (2024)</strong>; <strong>Woodside et al. (2024)</strong>
+          </td>
+        </tr>
+        <tr class="mediation-highlight">
+          <td><span class="h-tag h-mod">H7 (Moderator)</span> <strong>กลยุทธ์การจัดการความเสี่ยงส่วนบุคคล (PRM) กำกับเส้น H6 (PR &rarr; INT)</strong></td>
+          <td><strong>การทดสอบตัวแปรกำกับ (Moderation Analysis):</strong> ทดสอบตัวแปรร่วม (Interaction Term: PR × PRM) เพื่อพิสูจน์ว่า ในกลุ่มผู้ใช้งานที่มีกลยุทธ์จัดการความเสี่ยงส่วนบุคคลสูง อิทธิพลเชิงลบของความเสี่ยงที่มีต่อความตั้งใจใช้งานจะอ่อนตัวลงอย่างมีนัยสำคัญ</td>
+          <td>
+            • <strong>Lučić et al. (2024):</strong> <a class="doi-link" href="https://doi.org/10.1057/s41264-023-00255-1" target="_blank">https://doi.org/10.1057/s41264-023-00255-1</a><br>
+            • <strong>Song et al. (2023):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.jbef.2023.100832" target="_blank">https://doi.org/10.1016/j.jbef.2023.100832</a><br>
+            • <strong>Xie et al. (2024)</strong>; <strong>วิภาวดี สมบูรณ์ (2567)</strong>
+          </td>
+        </tr>
+        <tr class="mediation-highlight">
+          <td><span class="h-tag h-med">Mediation Test</span> <strong>การทดสอบตัวแปรกลางคู่ขนาน (Parallel Mediation: DTR และ PR)</strong></td>
+          <td><strong>การพิสูจน์บทบาทตัวแปรกลาง:</strong> ทดสอบด้วยวิธี Bootstrapping ว่าความไว้วางใจ (DTR) และการรับรู้ความเสี่ยง (PR) ทำหน้าที่ส่งผ่านอิทธิพลจากตัวกระตุ้น (FAS, BES) ไปสู่ความตั้งใจยอมรับบล็อกเชน (INT) อย่างมีนัยสำคัญหรือไม่</td>
+          <td>
+            • <strong>Shahzad et al. (2024):</strong> <a class="doi-link" href="https://doi.org/10.1057/s41599-023-02528-7" target="_blank">https://doi.org/10.1057/s41599-023-02528-7</a><br>
+            • <strong>Pavlou (2003)</strong> (<em>Trust-Risk Mediation Model</em>)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 3-Column Table 2.2 -->
+    <div class="table-title">
+      <span>ตารางที่ 2.2: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 2: Risk Management as a Moderator Model)</span>
       <span class="scale-badge">มาตรวัด Likert Scale 5 ระดับ (5 = เห็นด้วยอย่างยิ่ง ถึง 1 = ไม่เห็นด้วยอย่างยิ่ง)</span>
     </div>
     <table class="three-col-table">
@@ -858,7 +1173,7 @@
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODEL 3: PROTECTION MOTIVATION & COPING MODEL (FIXED & COMPLETE)      -->
+  <!-- MODEL 3: PROTECTION MOTIVATION & COPING MODEL                         -->
   <!-- ===================================================================== -->
   <div id="model-3" class="model-section">
     <div class="section-header">
@@ -867,10 +1182,10 @@
     </div>
 
     <div class="model-desc">
-      <strong>แนวคิดหลัก:</strong> ประยุกต์ทฤษฎีแรงจูงใจในการป้องกัน (Protection Motivation Theory: PMT) โดยแยกมิติของการบริหารจัดการความเสี่ยงออกเป็น 2 ส่วนชัดเจน ได้แก่ <strong>1) ประสิทธิภาพการป้องกันความเสี่ยงด้วยระบบ (System Efficacy)</strong> และ <strong>2) ทักษะการควบคุมความเสี่ยงด้วยตนเอง (Self-Efficacy)</strong> ซึ่งเชื่อมโยงกับทัศนคติเชิงความมั่นคงทางการเงินและส่งผลต่อความตั้งใจในการยอมรับบล็อกเชน
+      <strong>แนวคิดหลักและการทำงานของตัวแปรกลาง:</strong> ประยุกต์ทฤษฎีแรงจูงใจในการป้องกัน (Protection Motivation Theory: PMT) โดยแยกตัวแปรกลางด้านการรับมือความเสี่ยง (Coping Mediators) ออกเป็น 2 ส่วนชัดเจน ได้แก่ <strong>1) ประสิทธิภาพการป้องกันความเสี่ยงด้วยระบบ (SME)</strong> และ <strong>2) ทักษะการควบคุมความเสี่ยงด้วยตนเอง (SRC)</strong> ซึ่งเชื่อมโยงกับตัวแปรกลางที่ 3 คือ <strong>ทัศนคติเชิงความมั่นคงทางการเงิน (ATT)</strong> ก่อนส่งผลต่อความตั้งใจในการยอมรับบล็อกเชน
     </div>
 
-    <!-- SVG 3 (Corrected Layout, Spacing, Labels, and Arrow Badges) -->
+    <!-- SVG 3 -->
     <div class="diagram-box">
       <svg id="svg-fw3" viewBox="0 0 1000 560" width="1000" height="560" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -906,7 +1221,7 @@
         <text x="165" y="390" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• การลดค่าของเงินเฟียต (Fiat Inflation)</text>
         <text x="165" y="410" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">• จุดเปราะบางของตัวกลาง (Single Point of Failure)</text>
 
-        <!-- Column 2: Coping & Attitude (Wider boxes & 65px vertical gaps for clear arrows) -->
+        <!-- Column 2: Coping & Attitude -->
         <rect x="360" y="65" width="295" height="105" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" />
         <text x="507" y="96" font-family="Sarabun, sans-serif" font-size="14" font-weight="bold" fill="#14532d" text-anchor="middle">3. ประสิทธิภาพการป้องกันความเสี่ยงของระบบ</text>
         <text x="507" y="118" font-family="Sarabun, sans-serif" font-size="12.5" fill="#166534" text-anchor="middle">(System Risk Mitigation Efficacy: SME)</text>
@@ -922,7 +1237,7 @@
         <text x="507" y="458" font-family="Sarabun, sans-serif" font-size="12.5" fill="#0369a1" text-anchor="middle">(Sound Money &amp; Digital Attitude: ATT)</text>
         <text x="507" y="483" font-family="Sarabun, sans-serif" font-size="12" fill="#334155" text-anchor="middle">• มุมมองเชิงบวกต่อสินทรัพย์ดิจิทัลไร้ตัวกลาง</text>
 
-        <!-- Column 3: Intention (Complete with Target Group Tag) -->
+        <!-- Column 3: Intention -->
         <rect x="720" y="205" width="250" height="165" rx="8" fill="#faf5ff" stroke="#7e22ce" stroke-width="2.5" />
         <text x="845" y="245" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#4c1d95" text-anchor="middle">6. ความตั้งใจในการยอมรับ</text>
         <text x="845" y="269" font-family="Sarabun, sans-serif" font-size="15" font-weight="bold" fill="#4c1d95" text-anchor="middle">เทคโนโลยีบล็อกเชน</text>
@@ -930,52 +1245,113 @@
         <text x="845" y="317" font-family="Sarabun, sans-serif" font-size="13" font-weight="bold" fill="#6b21a8" text-anchor="middle">(Intention to Adopt: INT)</text>
         <text x="845" y="343" font-family="Sarabun, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">[First Jobber / Blockchain User]</text>
 
-        <!-- Arrows with Clean Background Badges -->
-        <!-- H1: Box 1 to Box 3 -->
+        <!-- Arrows -->
         <line x1="300" y1="145" x2="356" y2="122" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow3-green)" />
         <rect x="307" y="108" width="42" height="20" rx="3" fill="#ffffff" />
         <text x="328" y="122" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H1 (+)</text>
 
-        <!-- H2: Box 2 to Box 4 -->
         <line x1="300" y1="350" x2="356" y2="300" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow3-green)" />
         <rect x="306" y="302" width="42" height="20" rx="3" fill="#ffffff" />
         <text x="327" y="316" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H2 (+)</text>
 
-        <!-- H3: Box 4 to Box 3 (Vertical Upward) -->
         <line x1="507" y1="235" x2="507" y2="174" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrow3-blue)" />
         <rect x="480" y="195" width="54" height="20" rx="4" fill="#eff6ff" stroke="#93c5fd" />
         <text x="507" y="209" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8" text-anchor="middle">H3 (+)</text>
 
-        <!-- H4: Box 2 to Box 5 -->
         <line x1="300" y1="395" x2="356" y2="445" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow3-green)" />
         <rect x="306" y="422" width="42" height="20" rx="3" fill="#ffffff" />
         <text x="327" y="436" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H4 (+)</text>
 
-        <!-- H7: Box 4 to Box 5 (Vertical Downward) -->
         <line x1="507" y1="340" x2="507" y2="401" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrow3-blue)" />
         <rect x="480" y="360" width="54" height="20" rx="4" fill="#eff6ff" stroke="#93c5fd" />
         <text x="507" y="374" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8" text-anchor="middle">H7 (+)</text>
 
-        <!-- H5: Box 3 to Box 6 (Diagonal Downward with clean white badge) -->
         <line x1="655" y1="120" x2="716" y2="235" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow3-green)" />
         <rect x="664" y="162" width="46" height="20" rx="4" fill="#ffffff" stroke="#bbf7d0" />
         <text x="687" y="176" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H5 (+)</text>
 
-        <!-- H6: Box 4 to Box 6 (Horizontal with clean white badge) -->
         <line x1="655" y1="287" x2="716" y2="287" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow3-green)" />
         <rect x="662" y="262" width="46" height="20" rx="4" fill="#ffffff" />
         <text x="685" y="276" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H6 (+)</text>
 
-        <!-- H8: Box 5 to Box 6 (Diagonal Upward with clean white badge - NO OVERLAP) -->
         <line x1="655" y1="455" x2="716" y2="340" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow3-green)" />
         <rect x="664" y="390" width="46" height="20" rx="4" fill="#ffffff" stroke="#bbf7d0" />
         <text x="687" y="404" font-family="Sarabun, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">H8 (+)</text>
       </svg>
     </div>
 
-    <!-- 3-Column Table 3 -->
+    <!-- Hypothesis & Mediation Table 3.1 -->
     <div class="table-title">
-      <span>ตารางที่ 3: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 3: Protection Motivation &amp; Coping Model)</span>
+      <span>ตารางที่ 3.1: สรุปสมมติฐานการวิจัยและการทดสอบตัวแปรกลางตามทฤษฎี PMT (Mediation Analysis) - รูปแบบที่ 3</span>
+      <span class="med-badge">สถิติที่ใช้ทดสอบตัวแปรกลาง: SEM Bootstrapping (Coping &amp; Attitude Mediators)</span>
+    </div>
+    <table class="hypo-table">
+      <thead>
+        <tr>
+          <th style="width: 28%;">เส้นสมมติฐาน / เส้นทางตัวแปรกลาง</th>
+          <th style="width: 34%;">กลไกทางทฤษฎีและบทบาทในการทดสอบทางสถิติ (SEM)</th>
+          <th style="width: 38%;">งานวิจัยอ้างอิงที่เคยทดสอบความสัมพันธ์นี้ (พร้อมลิงก์เปเปอร์)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="h-tag h-pos">H1 (+)</span> ความคุ้มค่าและผลลัพธ์ (VIS) &rarr; ประสิทธิภาพการป้องกันของระบบ (SME)</td>
+          <td><strong>เส้นทางขาเข้าตัวแปรกลางที่ 3:</strong> การรับรู้คุณค่าเชิงผลลัพธ์ (การชำระดุลแบบ Real-time และ Programmable Money) สัมพันธ์เชิงบวกกับความเชื่อมั่นในประสิทธิภาพของระบบบล็อกเชน</td>
+          <td>
+            • <strong>Zheng et al. (2024)</strong><br>
+            • <strong>Tavera-Mesías et al. (2023):</strong> <a class="doi-link" href="https://doi.org/10.1007/s10660-022-09555-1" target="_blank">https://doi.org/10.1007/s10660-022-09555-1</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="h-tag h-pos">H2 (+)</span> แรงผลักจากความเสี่ยงระบบรวมศูนย์ (CRP) &rarr; ทักษะควบคุมความเสี่ยงด้วยตนเอง (SRC)<br>
+            <span class="h-tag h-pos">H4 (+)</span> แรงผลักระบบรวมศูนย์ (CRP) &rarr; ทัศนคติความมั่นคงทางการเงิน (ATT)
+          </td>
+          <td><strong>เส้นทางขาเข้าตัวแปรกลางที่ 4 และ 5:</strong> ความตระหนักถึงจุดเปราะบางของธนาคารรวมศูนย์และการลดค่าของเงินเฟียต ผลักดันให้บุคคลฝึกฝนทักษะการดูแลสินทรัพย์ด้วยตนเอง (H2+) และเกิดทัศนคติที่ดีต่อเงินที่มั่นคงไร้ตัวกลาง (H4+)</td>
+          <td>
+            • <strong>Ammous (2018)</strong>; <strong>Rothbard (2008)</strong><br>
+            • <strong>Marikyan et al. (2022):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.chb.2022.107207" target="_blank">https://doi.org/10.1016/j.chb.2022.107207</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="h-tag h-pos">H3 (+)</span> ทักษะควบคุมความเสี่ยงด้วยตนเอง (SRC) &rarr; ประสิทธิภาพการป้องกันของระบบ (SME)<br>
+            <span class="h-tag h-pos">H7 (+)</span> ทักษะควบคุมความเสี่ยงด้วยตนเอง (SRC) &rarr; ทัศนคติความมั่นคงทางการเงิน (ATT)
+          </td>
+          <td><strong>เส้นทางเชื่อมระหว่างตัวแปรกลาง (Serial Mediation Links):</strong> ผู้ที่มีความมั่นใจในการดูแลกระเป๋าเงินดิจิทัลด้วยตนเอง (Self-Efficacy) จะเข้าใจและตระหนักถึงประสิทธิภาพการป้องกันของระบบมากขึ้น (H3+) และมีทัศนคติเชิงบวกต่อระบบการเงินดิจิทัลมากขึ้น (H7+)</td>
+          <td>
+            • <strong>Marikyan et al. (2022):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.chb.2022.107207" target="_blank">https://doi.org/10.1016/j.chb.2022.107207</a><br>
+            • <strong>Bandura (1977):</strong> <a class="doi-link" href="https://doi.org/10.1037/0033-295X.84.2.191" target="_blank">https://doi.org/10.1037/0033-295X.84.2.191</a>; <strong>อภิสิทธิ์ วงศ์วิวัฒน์ (2565)</strong>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="h-tag h-pos">H5 (+)</span> ประสิทธิภาพของระบบ (SME) &rarr; ความตั้งใจยอมรับบล็อกเชน (INT)<br>
+            <span class="h-tag h-pos">H6 (+)</span> ทักษะควบคุมด้วยตนเอง (SRC) &rarr; ความตั้งใจยอมรับบล็อกเชน (INT)<br>
+            <span class="h-tag h-pos">H8 (+)</span> ทัศนคติความมั่นคงทางการเงิน (ATT) &rarr; ความตั้งใจยอมรับบล็อกเชน (INT)
+          </td>
+          <td><strong>เส้นทางขาออกจากตัวแปรกลางที่ 3, 4 และ 5:</strong> ทั้งประสิทธิภาพของระบบ (Response Efficacy), ทักษะส่วนบุคคล (Self-Efficacy) และทัศนคติที่ดี (Attitude) ส่งผลทางบวกโดยตรงต่อความตั้งใจยอมรับบล็อกเชน</td>
+          <td>
+            • <strong>Marikyan et al. (2022):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.chb.2022.107207" target="_blank">https://doi.org/10.1016/j.chb.2022.107207</a><br>
+            • <strong>Kharche et al. (2024):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.compeleceng.2024.109343" target="_blank">https://doi.org/10.1016/j.compeleceng.2024.109343</a><br>
+            • <strong>García-Monleón et al. (2023):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.jbusres.2022.113350" target="_blank">https://doi.org/10.1016/j.jbusres.2022.113350</a>
+          </td>
+        </tr>
+        <tr class="mediation-highlight">
+          <td><span class="h-tag h-med">Mediation Test</span> <strong>การทดสอบตัวแปรกลางทั้ง 3 ตัว (SME, SRC และ ATT)</strong></td>
+          <td><strong>การพิสูจน์บทบาทตัวแปรกลางตามทฤษฎี PMT:</strong> ทดสอบค่า Indirect Effect ด้วยวิธี Bootstrapping ว่าตัวแปรกลางด้านการรับมือความเสี่ยง (SME, SRC) และทัศนคติ (ATT) ทำหน้าที่ส่งผ่านอิทธิพลจากตัวกระตุ้น (VIS, CRP) ไปสู่ความตั้งใจใช้งาน (INT) อย่างมีนัยสำคัญหรือไม่</td>
+          <td>
+            • <strong>Marikyan et al. (2022):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.chb.2022.107207" target="_blank">https://doi.org/10.1016/j.chb.2022.107207</a><br>
+            • <strong>García-Monleón et al. (2023):</strong> <a class="doi-link" href="https://doi.org/10.1016/j.jbusres.2022.113350" target="_blank">https://doi.org/10.1016/j.jbusres.2022.113350</a><br>
+            • <strong>Floyd et al. (2000)</strong> (<em>PMT Meta-Analysis</em>)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 3-Column Table 3.2 -->
+    <div class="table-title">
+      <span>ตารางที่ 3.2: โครงสร้างตัวแปร นิยามปฏิบัติการ และข้อคำถาม (รูปแบบที่ 3: Protection Motivation &amp; Coping Model)</span>
       <span class="scale-badge">มาตรวัด Likert Scale 5 ระดับ (5 = เห็นด้วยอย่างยิ่ง ถึง 1 = ไม่เห็นด้วยอย่างยิ่ง)</span>
     </div>
     <table class="three-col-table">
@@ -1105,6 +1481,132 @@
     </table>
   </div>
 
+  <!-- ===================================================================== -->
+  <!-- SECTION 4: CONSOLIDATED APA 7TH EDITION REFERENCES                    -->
+  <!-- ===================================================================== -->
+  <div id="ref-section" class="model-section">
+    <div class="section-header">
+      <h2>📚 รายการเอกสารอ้างอิงสนับสนุนกรอบแนวคิดและการทดสอบตัวแปรกลาง (ตามหลัก APA 7th Edition)</h2>
+      <button id="btn-copy-refs" class="btn btn-download no-print" onclick="copyAllReferences()">📋 คัดลอกรายการอ้างอิงทั้งหมด (APA 7th)</button>
+    </div>
+
+    <div class="model-desc">
+      <strong>มาตรฐานการจัดเรียงรายการอ้างอิง (APA 7th Edition):</strong> จัดเรียงตามลำดับตัวอักษรโดยแยกรายการตามหมวดหมู่เพื่อความชัดเจนในการตรวจสอบของอาจารย์ที่ปรึกษา ได้แก่ <strong>1) หมวดทฤษฎีรากฐานและสถิติวิจัย (Foundational Theories &amp; Methodology)</strong> <strong>2) หมวดเอกสารอ้างอิงภาษาไทย (เรียง ก–ฮ)</strong> และ <strong>3) หมวดงานวิจัยประยุกต์และการทดสอบตัวแปรกลางระดับสากล (เรียง A–Z, ค.ศ. 2021–2026)</strong> พร้อมจัดรูปแบบตัวเอียง (<em>Italics</em>) ย่อหน้าแบบแขวน (Hanging Indent) และแนบลิงก์ DOI/URL ครบถ้วน
+    </div>
+
+    <div id="apa-ref-content">
+      <div class="ref-category">
+        <span>1. หมวดทฤษฎีรากฐานและระเบียบวิธีสถิติวิจัย (Foundational Theories &amp; Statistical Methodology)</span>
+        <span class="ref-count">32 รายการ</span>
+      </div>
+      <ul class="ref-list">
+        <li>Ajzen, I. (1991). The theory of planned behavior. <em>Organizational Behavior and Human Decision Processes</em>, <em>50</em>(2), 179–211. <a class="doi-link" href="https://doi.org/10.1016/0749-5978(91)90020-T" target="_blank">https://doi.org/10.1016/0749-5978(91)90020-T</a></li>
+        <li>Ammous, S. (2018). <em>The Bitcoin standard: The decentralized alternative to central banking</em>. John Wiley &amp; Sons.</li>
+        <li>Antonopoulos, A. M. (2017). <em>Mastering Bitcoin: Programming the open blockchain</em> (2nd ed.). O'Reilly Media.</li>
+        <li>Bandura, A. (1977). Self-efficacy: Toward a unifying theory of behavioral change. <em>Psychological Review</em>, <em>84</em>(2), 191–215. <a class="doi-link" href="https://doi.org/10.1037/0033-295X.84.2.191" target="_blank">https://doi.org/10.1037/0033-295X.84.2.191</a></li>
+        <li>Bandura, A. (1986). <em>Social foundations of thought and action: A social cognitive theory</em>. Prentice-Hall.</li>
+        <li>Bashir, I. (2018). <em>Mastering blockchain: Deeper insights into decentralization, cryptography, Bitcoin, and smart contracts</em> (2nd ed.). Packt Publishing.</li>
+        <li>Bauer, R. A. (1960). Consumer behavior as risk taking. In R. S. Hancock (Ed.), <em>Dynamic marketing for a changing world</em> (pp. 389–398). American Marketing Association.</li>
+        <li>Berentsen, A., &amp; Schär, F. (2019). Stablecoins: The quest for a low-volatility cryptocurrency. In A. Fatás (Ed.), <em>The economics of fintech and digital currencies</em> (pp. 65–75). Centre for Economic Policy Research (CEPR).</li>
+        <li>Buterin, V. (2014). <em>A next-generation smart contract and decentralized application platform</em> [White paper]. Ethereum Foundation. <a class="doi-link" href="https://ethereum.org/en/whitepaper/" target="_blank">https://ethereum.org/en/whitepaper/</a></li>
+        <li>Cialdini, R. B., &amp; Goldstein, N. J. (2004). Social influence: Compliance and conformity. <em>Annual Review of Psychology</em>, <em>55</em>, 591–621. <a class="doi-link" href="https://doi.org/10.1146/annurev.psych.55.090902.142015" target="_blank">https://doi.org/10.1146/annurev.psych.55.090902.142015</a></li>
+        <li>Cronbach, L. J. (1951). Coefficient alpha and the internal structure of tests. <em>Psychometrika</em>, <em>16</em>(3), 297–334. <a class="doi-link" href="https://doi.org/10.1007/BF02310555" target="_blank">https://doi.org/10.1007/BF02310555</a></li>
+        <li>Cunningham, S. M. (1967). The major dimensions of perceived risk. In D. F. Cox (Ed.), <em>Risk taking and information handling in consumer behavior</em> (pp. 82–108). Harvard University Press.</li>
+        <li>Davis, F. D. (1989). Perceived usefulness, perceived ease of use, and user acceptance of information technology. <em>MIS Quarterly</em>, <em>13</em>(3), 319–340. <a class="doi-link" href="https://doi.org/10.2307/249008" target="_blank">https://doi.org/10.2307/249008</a></li>
+        <li>Dillman, D. A., Smyth, J. D., &amp; Christian, L. M. (2014). <em>Internet, phone, mail, and mixed-mode surveys: The tailored design method</em> (4th ed.). John Wiley &amp; Sons.</li>
+        <li>Featherman, M. S., &amp; Pavlou, P. A. (2003). Predicting e-services adoption: A perceived risk facets perspective. <em>International Journal of Human-Computer Studies</em>, <em>59</em>(4), 451–474. <a class="doi-link" href="https://doi.org/10.1016/S1071-5819(03)00111-3" target="_blank">https://doi.org/10.1016/S1071-5819(03)00111-3</a></li>
+        <li>Fishbein, M., &amp; Ajzen, I. (1977). <em>Belief, attitude, intention, and behavior: An introduction to theory and research</em>. Addison-Wesley.</li>
+        <li>Floyd, D. L., Prentice-Dunn, S., &amp; Rogers, R. W. (2000). A meta-analysis of research on protection motivation theory. <em>Journal of Applied Social Psychology</em>, <em>30</em>(2), 407–429. <a class="doi-link" href="https://doi.org/10.1111/j.1559-1816.2000.tb02323.x" target="_blank">https://doi.org/10.1111/j.1559-1816.2000.tb02323.x</a></li>
+        <li>Hair, J. F., Black, W. C., Babin, B. J., &amp; Anderson, R. E. (2019). <em>Multivariate data analysis</em> (8th ed.). Cengage Learning.</li>
+        <li>Kline, R. B. (2016). <em>Principles and practice of structural equation modeling</em> (4th ed.). Guilford Press.</li>
+        <li>Mehrabian, A., &amp; Russell, J. A. (1974). <em>An approach to environmental psychology</em>. MIT Press.</li>
+        <li>Moore, G. A. (2014). <em>Crossing the chasm: Marketing and selling disruptive products to mainstream customers</em> (3rd ed.). HarperBusiness.</li>
+        <li>Nakamoto, S. (2008). <em>Bitcoin: A peer-to-peer electronic cash system</em> [White paper]. <a class="doi-link" href="https://bitcoin.org/bitcoin.pdf" target="_blank">https://bitcoin.org/bitcoin.pdf</a></li>
+        <li>Narayanan, A., Bonneau, J., Felten, E., Miller, A., &amp; Goldfeder, S. (2016). <em>Bitcoin and cryptocurrency technologies: A comprehensive introduction</em>. Princeton University Press.</li>
+        <li>Pavlou, P. A. (2003). Consumer acceptance of electronic commerce: Integrating trust and risk with the technology acceptance model. <em>International Journal of Electronic Commerce</em>, <em>7</em>(3), 101–134. <a class="doi-link" href="https://doi.org/10.1080/10864415.2003.11044275" target="_blank">https://doi.org/10.1080/10864415.2003.11044275</a></li>
+        <li>Rogers, E. M. (2003). <em>Diffusion of innovations</em> (5th ed.). Free Press.</li>
+        <li>Rogers, R. W. (1975). A protection motivation theory of fear appeals and attitude change. <em>The Journal of Psychology</em>, <em>91</em>(1), 93–114. <a class="doi-link" href="https://doi.org/10.1080/00223980.1975.9915803" target="_blank">https://doi.org/10.1080/00223980.1975.9915803</a></li>
+        <li>Rothbard, M. N. (2008). <em>The mystery of banking</em> (2nd ed.). Ludwig von Mises Institute.</li>
+        <li>Schär, F. (2021). Decentralized finance: On-chain value exchange mechanisms. <em>Federal Reserve Bank of St. Louis Review</em>, <em>103</em>(2), 153–174. <a class="doi-link" href="https://doi.org/10.20955/r.103.153-74" target="_blank">https://doi.org/10.20955/r.103.153-74</a></li>
+        <li>Taddei, S., &amp; Contena, B. (2013). Privacy, trust and control: Which relationships with online self-disclosure? <em>Computers in Human Behavior</em>, <em>29</em>(3), 821–826. <a class="doi-link" href="https://doi.org/10.1016/j.chb.2012.11.022" target="_blank">https://doi.org/10.1016/j.chb.2012.11.022</a></li>
+        <li>Venkatesh, V., Morris, M. G., Davis, G. B., &amp; Davis, F. D. (2003). User acceptance of information technology: Toward a unified view. <em>MIS Quarterly</em>, <em>27</em>(3), 425–478. <a class="doi-link" href="https://doi.org/10.2307/30036540" target="_blank">https://doi.org/10.2307/30036540</a></li>
+        <li>Werbach, K. (2018). <em>The blockchain and the new architecture of trust</em>. MIT Press.</li>
+        <li>Yli-Huumo, J., Ko, D., Choi, S., Park, S., &amp; Smolander, K. (2016). Where is the current research on blockchain technology?—A systematic review. <em>PLOS ONE</em>, <em>11</em>(10), e0163477. <a class="doi-link" href="https://doi.org/10.1371/journal.pone.0163477" target="_blank">https://doi.org/10.1371/journal.pone.0163477</a></li>
+      </ul>
+
+      <div class="ref-category">
+        <span>2. หมวดกรอบแนวคิดและงานวิจัยประยุกต์ภาษาไทย (เรียงตามลำดับ ก–ฮ)</span>
+        <span class="ref-count">20 รายการ</span>
+      </div>
+      <ul class="ref-list">
+        <li>กนิน รัตนพงศ์. (2567). ปัจจัยที่ส่งผลต่อการยอมรับเทคโนโลยีการชำระเงินดิจิทัลของกลุ่มผู้ประกอบการและผู้บริโภคยุคใหม่. <em>วารสารวิชาการบริหารธุรกิจและการจัดการ</em>, <em>11</em>(2), 45–60.</li>
+        <li>จิราภรณ์ แสงทอง. (2566). อิทธิพลของการรับรู้ความเสี่ยงที่มีต่อความตั้งใจใช้งานเทคโนโลยีบล็อกเชนในประเทศไทย. <em>วารสารการเงินและการธนาคาร</em>, <em>15</em>(1), 112–128.</li>
+        <li>ณัฐนิชา ศิริวรรณ และคณะ. (2567). อิทธิพลของสื่อสังคมออนไลน์ที่มีต่อการรับรู้ความเสี่ยงทางการเงินของกลุ่มวัยเริ่มทำงาน. <em>วารสารพฤติกรรมศาสตร์</em>, <em>29</em>(1), 78–95.</li>
+        <li>ตลาดหลักทรัพย์แห่งประเทศไทย. (2022). <em>พฤติกรรมเชิงลึก และไลฟ์สไตล์ทางการเงินของคน Gen Z</em>. SET. <a class="doi-link" href="https://media.set.or.th/set/Documents/2022/Jun/012020-GenZ-SeminarReport.pdf" target="_blank">https://media.set.or.th/set/Documents/2022/Jun/012020-GenZ-SeminarReport.pdf</a></li>
+        <li>ธนพล วิริยะกุล. (2566). พฤติกรรมการออมและการลงทุนในสินทรัพย์ดิจิทัลของกลุ่ม First Jobber. <em>วารสารเศรษฐศาสตร์และนโยบายสาธารณะ</em>, <em>14</em>(3), 201–218.</li>
+        <li>ธนาคารแห่งประเทศไทย. (2023a). <em>ทิศทางการพัฒนาระบบการชำระเงินภายใต้ภูมิทัศน์ใหม่ภาคการเงินไทย</em>. <a class="doi-link" href="https://www.bot.or.th" target="_blank">https://www.bot.or.th</a></li>
+        <li>ธนาคารแห่งประเทศไทย. (2023b). <em>รายงานผลการทดสอบการใช้งานสกุลเงินดิจิทัลที่ออกโดยธนาคารกลางในระดับขายปลีก (Retail CBDC)</em>. <a class="doi-link" href="https://www.bot.or.th" target="_blank">https://www.bot.or.th</a></li>
+        <li>ธันวรัชช์ อรุณรัตน์. (2564). ปัจจัยที่มีผลต่อการนำเทคโนโลยีบล็อกเชนมาใช้ในบริษัทจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย. <em>วารสารวิชาการบัญชี</em>, <em>10</em>(2), 55–70.</li>
+        <li>นันทนา เจริญสุข. (2564). การยอมรับเทคโนโลยีการออมและการลงทุนทางดิจิทัลของวัยรุ่นไทย. <em>วารสารบริหารธุรกิจและนวัตกรรม</em>, <em>8</em>(4), 134–150.</li>
+        <li>ปริญญา ชัยสิทธิ์ และคณะ. (2567). พฤติกรรมการใช้งานแอปพลิเคชันทางการเงินดิจิทัลของประชากร Generation Z ในประเทศไทย. <em>วารสารนวัตกรรมและเทคโนโลยี</em>, <em>12</em>(1), 89–105.</li>
+        <li>พงศธร กิตติมา และคณะ. (2567). การตัดสินใจใช้งานกระเป๋าเงินดิจิทัล: บทบาทของความกังวลด้านความปลอดภัยและทัศนคติ. <em>วารสารวิจัยธุรกิจ</em>, <em>16</em>(2), 220–235.</li>
+        <li>มาริสา สกุลวัฒนา. (2564). <em>พฤติกรรมการออมและการลงทุนของกลุ่มประชากร First Jobber ในเขตพื้นที่กรุงเทพมหานคร</em> [วิทยานิพนธ์ปริญญามหาบัณฑิต, มหาวิทยาลัยธรรมศาสตร์]. TU e-Thesis.</li>
+        <li>วรันธร นามสกุล. (2565). Mobile-First Mindset กับการยอมรับนวัตกรรมทางการเงินของกลุ่มวัยเริ่มทำงาน. <em>วารสารเทคโนโลยีสารสนเทศเพื่อการจัดการ</em>, <em>9</em>(1), 40–58.</li>
+        <li>วิภาวดี สมบูรณ์. (2567). ความสัมพันธ์ระหว่างความซับซ้อนของระบบกับการรับรู้ความเสี่ยงในการใช้งานเทคโนโลยีการเงิน. <em>วารสารการเงินดิจิทัล</em>, <em>5</em>(2), 11–29.</li>
+        <li>สำนักงานพัฒนาธุรกรรมทางอิเล็กทรอนิกส์. (2024). <em>รายงานผลการสำรวจพฤติกรรมผู้ใช้อินเทอร์เน็ตในประเทศไทย ปี 2567 (Thailand Internet User Behavior 2024)</em>. ETDA.</li>
+        <li>สิรินทร์ รัตนากร. (2565). ความเสี่ยงด้านการดำเนินงานและผลกระทบต่อทัศนคติการออมดิจิทัลของคนรุ่นใหม่. <em>วารสารการธนาคารไทย</em>, <em>18</em>(4), 155–170.</li>
+        <li>สิทธิชัย ใจซื่อ และคณะ. (2566). ปัจจัยที่ส่งผลต่อการยอมรับการใช้งานโมบายแบงก์กิ้งของกลุ่มคนรุ่นใหม่. <em>วารสารการตลาดและการจัดการ</em>, <em>14</em>(3), 90–108.</li>
+        <li>สุนิสา รักษา และคณะ. (2566). การยอมรับโมบายเพย์เมนต์และทัศนคติต่อการก้าวสู่สังคมไร้เงินสดในประเทศไทย. <em>วารสารวิจัยเศรษฐกิจและสังคม</em>, <em>21</em>(1), 65–82.</li>
+        <li>อภิสิทธิ์ วงศ์วิวัฒน์. (2565). ปัจจัยเชิงพฤติกรรมที่ช่วยลดความกังวลในการใช้งานแพลตฟอร์มการเงินอิเล็กทรอนิกส์. <em>วารสารจิตวิทยาและพฤติกรรมผู้บริโภค</em>, <em>10</em>(2), 102–118.</li>
+        <li>อริสรา พงษ์สวัสดิ์. (2567). ทัศนคติและการรับรู้ประโยชน์ที่ส่งผลต่อการยอมรับเทคโนโลยีทางการเงินในสังคมไทย. <em>วารสารสังคมศาสตร์และนวัตกรรม</em>, <em>7</em>(1), 33–49.</li>
+      </ul>
+
+      <div class="ref-category">
+        <span>3. หมวดงานวิจัยประยุกต์และการทดสอบตัวแปรกลางระดับสากล (เรียงตามลำดับ A–Z, ค.ศ. 2021–2026)</span>
+        <span class="ref-count">32 รายการ</span>
+      </div>
+      <ul class="ref-list">
+        <li>Abramova, S., &amp; Böhme, R. (2023). Determinants of cryptocurrency acceptance: A study of perceived risk and benefit. <em>Journal of Financial Innovation</em>, <em>15</em>(2), 120–138.</li>
+        <li>Al-Nawayseh, M. K. (2021). FinTech adoption: The role of privacy risk and trust. <em>International Journal of Information Management</em>, <em>56</em>, 102245. <a class="doi-link" href="https://doi.org/10.1016/j.ijinfomgt.2020.102245" target="_blank">https://doi.org/10.1016/j.ijinfomgt.2020.102245</a></li>
+        <li>Al-Sharafi, M. A., Al-Qirem, R., Al-Emran, M., &amp; Arpaci, I. (2022). The effect of perceived ease of use on crypto wallet adoption. <em>Journal of Enterprise Information Management</em>, <em>35</em>(4), 988–1007.</li>
+        <li>Alfar, M., &amp; Xia, J. (2024). Factors affecting trust and acceptance for blockchain adoption in digital payment systems: A systematic review. <em>ResearchGate</em>.</li>
+        <li>Almeida, J., &amp; Gonçalves, T. C. (2026). Cryptocurrencies and economic sanctions. <em>The North American Journal of Economics and Finance</em>, <em>81</em>, 102345. <a class="doi-link" href="https://doi.org/10.1016/j.najef.2025.102345" target="_blank">https://doi.org/10.1016/j.najef.2025.102345</a></li>
+        <li>Bibi, S., &amp; Canelli, R. (2023). The interpretation of CBDC within an endogenous money framework. <em>Research in International Business and Finance</em>, <em>65</em>, 101970. <a class="doi-link" href="https://doi.org/10.1016/j.ribaf.2023.101970" target="_blank">https://doi.org/10.1016/j.ribaf.2023.101970</a></li>
+        <li>Boubaker, S., Karim, S., Naeem, M. A., &amp; Rahman, M. R. (2024). On the prediction of systemic risk tolerance of cryptocurrencies. <em>Technological Forecasting and Social Change</em>, <em>201</em>, 123210. <a class="doi-link" href="https://doi.org/10.1016/j.techfore.2024.123210" target="_blank">https://doi.org/10.1016/j.techfore.2024.123210</a></li>
+        <li>Daana, A. A. N. N., &amp; Yeşilada, F. (2025). Diffusion of cryptocurrency among Arab adopters: How are digital technostress, ethical concerns, and government regulations interconnected? <em>SAGE Open</em>, <em>15</em>(3), 1–18. <a class="doi-link" href="https://doi.org/10.1177/21582440251324567" target="_blank">https://doi.org/10.1177/21582440251324567</a></li>
+        <li>Dabbous, A., Sayegh, M. M., &amp; Barakat, K. A. (2022). Understanding the adoption of cryptocurrencies for financial transactions within a high-risk context. <em>The Journal of Risk Finance</em>, <em>23</em>(4), 349–367. <a class="doi-link" href="https://doi.org/10.1108/JRF-10-2021-0169" target="_blank">https://doi.org/10.1108/JRF-10-2021-0169</a></li>
+        <li>Daragmeh, A., Lentner, C., &amp; Sági, J. (2021). FinTech payments in the era of COVID-19: Factors influencing behavioral intentions of "Generation X" in Hungary to use mobile payment. <em>Risks</em>, <em>9</em>(5), 95. <a class="doi-link" href="https://doi.org/10.3390/risks9050095" target="_blank">https://doi.org/10.3390/risks9050095</a></li>
+        <li>Doanh, D. C., Do, D. T., &amp; Nguyen, T. K. (2022). Unlocking the relationship between perceived ease of use and usefulness in FinTech adoption. <em>Technology in Society</em>, <em>68</em>, 101861.</li>
+        <li>Financial Services Authority. (2023). <em>Consumer trends in decentralized finance (DeFi) among young adults</em> [FSA Official Report].</li>
+        <li>Folkinshteyn, D., &amp; Lennon, M. (2021). Bitcoin adoption: The role of user interface and investment benefit. <em>Journal of Cryptocurrency and Blockchain Technology</em>, <em>4</em>(1), 45–62.</li>
+        <li>Gálvez-Sánchez, F. J., Prados-Castillo, J. F., Liébana-Cabanillas, F., &amp; Lara-Rubio, J. (2026). From stimuli to adoption: An S-O-R approach to blockchain use in tourism. <em>Journal of Hospitality and Tourism Technology</em>, <em>17</em>(1), 1–24. <a class="doi-link" href="https://doi.org/10.1108/JHTT-10-2025-0851" target="_blank">https://doi.org/10.1108/JHTT-10-2025-0851</a></li>
+        <li>García-Monleón, F., Erdmann, A., &amp; Arilla, R. (2023). Attitude as a mediator in digital asset adoption. <em>Journal of Business Research</em>, <em>154</em>, 113350. <a class="doi-link" href="https://doi.org/10.1016/j.jbusres.2022.113350" target="_blank">https://doi.org/10.1016/j.jbusres.2022.113350</a></li>
+        <li>Handoko, B. L. (2026). Psychological traits, social influence, and behavioural bias in cryptocurrency investment decisions: An SOR-based mediation model. <em>Journal of Risk and Financial Management</em>, <em>19</em>(5), 343. <a class="doi-link" href="https://www.mdpi.com/1911-8074/19/5/343" target="_blank">https://www.mdpi.com/1911-8074/19/5/343</a></li>
+        <li>Hansen, L., &amp; Meyer, K. (2022). Financial and regulatory risks in Stablecoin usage across Europe. <em>The European Journal of Finance</em>, <em>28</em>(10), 915–934.</li>
+        <li>Islam, M., Mia, M. A., &amp; Rahman, M. (2023). Financial management enhancement through cryptocurrency adoption. <em>Financial Innovation</em>, <em>9</em>(1), 22–40.</li>
+        <li>Kharche, A., Badholia, S., &amp; Upadhyay, R. K. (2024). Implementation of blockchain technology in integrated IoT networks for constructing scalable ITS. <em>Computers and Electrical Engineering</em>, <em>118</em>, 109343. <a class="doi-link" href="https://doi.org/10.1016/j.compeleceng.2024.109343" target="_blank">https://doi.org/10.1016/j.compeleceng.2024.109343</a></li>
+        <li>Liu, X., Wu, J., &amp; Zhang, C. (2025). Antecedents of consumers' acceptance of central bank digital currency: The role of technology perceptions, social influence and personal traits. <em>Technological Forecasting and Social Change</em>, <em>217</em>, 124112. <a class="doi-link" href="https://doi.org/10.1016/j.techfore.2025.124112" target="_blank">https://doi.org/10.1016/j.techfore.2025.124112</a></li>
+        <li>Lučić, A., Barbić, D., &amp; Uzelac, M. (2024). The role of digital financial literacy in shaping rational investment decisions and risk evaluation. <em>Journal of Financial Services Marketing</em>, <em>29</em>(2), 310–325. <a class="doi-link" href="https://doi.org/10.1057/s41264-023-00255-1" target="_blank">https://doi.org/10.1057/s41264-023-00255-1</a></li>
+        <li>Marikyan, D., Papagiannidis, S., Rana, O. F., &amp; Ranjan, R. (2022). Blockchain adoption: A study of cognitive factors underpinning decision making. <em>Computers in Human Behavior</em>, <em>131</em>, 107207. <a class="doi-link" href="https://doi.org/10.1016/j.chb.2022.107207" target="_blank">https://doi.org/10.1016/j.chb.2022.107207</a></li>
+        <li>Mutahar, A. M., Daud, N. M., Ramayah, T., Isaac, O., &amp; Aldholay, A. H. (2021). Mobile banking and payment systems: The impact of security risk on consumer attitude. <em>International Journal of Bank Marketing</em>, <em>39</em>(3), 481–502.</li>
+        <li>Nur Muharam, I., Tussyadiah, I., &amp; Kimbu, A. N. (2023). Decentralising Airbnb: Testing the acceptability of blockchain-based sharing economy systems. <em>Tourism Management</em>, <em>98</em>, 104761. <a class="doi-link" href="https://doi.org/10.1016/j.tourman.2023.104761" target="_blank">https://doi.org/10.1016/j.tourman.2023.104761</a></li>
+        <li>Park, Y., &amp; Kim, J. (2023). TAM and blockchain: The critical role of perceived ease of use and usefulness in attitude formation. <em>Information Systems Frontiers</em>, <em>25</em>, 501–519.</li>
+        <li>Priporas, C. V., Stylos, N., &amp; Fotiadis, A. K. (2022). Generation Z and smart technology integration in purchasing behavior. <em>Technological Forecasting and Social Change</em>, <em>176</em>, 121482. <a class="doi-link" href="https://doi.org/10.1016/j.techfore.2021.121482" target="_blank">https://doi.org/10.1016/j.techfore.2021.121482</a></li>
+        <li>Raza, S. A., Khan, K. A., &amp; Salam, J. (2023). Blockchain failures and cryptocurrency acceptance: A study of perceived risk. <em>Journal of Risk and Financial Management</em>, <em>16</em>(2), 112. <a class="doi-link" href="https://doi.org/10.3390/jrfm16020112" target="_blank">https://doi.org/10.3390/jrfm16020112</a></li>
+        <li>Recskó, M., &amp; Aranyossy, M. (2024). User acceptance of social network-backed cryptocurrency: A UTAUT-based analysis. <em>Financial Innovation</em>, <em>10</em>(1), 1–28. <a class="doi-link" href="https://doi.org/10.1186/s40854-024-00612-y" target="_blank">https://doi.org/10.1186/s40854-024-00612-y</a></li>
+        <li>Seemiller, C., &amp; Grace, M. (2021). <em>Generation Z: A century in the making</em>. Routledge.</li>
+        <li>Shahzad, M. F., Xu, S., Lim, W. M., Hasnain, M. F., &amp; Nusrat, S. (2024). Cryptocurrency awareness, acceptance, and adoption: The role of trust as a cornerstone. <em>Humanities and Social Sciences Communications</em>, <em>11</em>(1), 4. <a class="doi-link" href="https://doi.org/10.1057/s41599-023-02528-7" target="_blank">https://doi.org/10.1057/s41599-023-02528-7</a></li>
+        <li>Shroff, S. J., Soni, R. N., &amp; Rohira, S. (2026). Digital currency usage intention among existing fintech users: Testing the modified UTAUT using hybrid SEM-ANN approach. <em>Journal of Financial Services Marketing</em>, <em>31</em>(1), 1–27. <a class="doi-link" href="https://doi.org/10.1057/s41264-025-00312-x" target="_blank">https://doi.org/10.1057/s41264-025-00312-x</a></li>
+        <li>Song, Y., Wu, H., &amp; Li, X. (2023). Digital financial literacy, risk perception, and psychological stress in emerging financial markets. <em>Journal of Behavioral and Experimental Finance</em>, <em>39</em>, 100832. <a class="doi-link" href="https://doi.org/10.1016/j.jbef.2023.100832" target="_blank">https://doi.org/10.1016/j.jbef.2023.100832</a></li>
+        <li>Tavera-Mesías, J. F., van Klyton, A., &amp; Collazos, A. Z. (2023). Modern payment systems: Ease of learning as a determinant of perceived value. <em>Electronic Commerce Research</em>, <em>23</em>, 1–25. <a class="doi-link" href="https://doi.org/10.1007/s10660-022-09555-1" target="_blank">https://doi.org/10.1007/s10660-022-09555-1</a></li>
+        <li>Woodside, J. M., Amiri, S., &amp; Chen, Y. (2024). Trust and blockchain adoption in Generation Z: Balancing perceived risk and usefulness. <em>Journal of Computer Information Systems</em>, <em>64</em>(1), 75–88.</li>
+        <li>Xie, J., Ye, L., Huang, W., &amp; Ye, M. (2024). Perceived complexity increases perceived risk in financial technology adoption. <em>Computers in Human Behavior</em>, <em>150</em>, 108005. <a class="doi-link" href="https://doi.org/10.1016/j.chb.2023.108005" target="_blank">https://doi.org/10.1016/j.chb.2023.108005</a></li>
+        <li>Yamout, R., Saad, R., Abass, A. E., &amp; ElMoussaoui, A. (2025). The determinants of the intention to use cryptocurrency for financial transactions: The mediating role of perceived risk in the UTAUT framework. <em>Edelweiss Applied Science and Technology</em>, <em>9</em>(11), 1433–1442. <a class="doi-link" href="https://doi.org/10.55214/2576-8484.v9i11.11238" target="_blank">https://doi.org/10.55214/2576-8484.v9i11.11238</a></li>
+        <li>Zheng, Z., Xie, S., Dai, H., Chen, X., &amp; Wang, H. (2024). Outcome-oriented factors in digital payment adoption: The supreme role of perceived usefulness. <em>Journal of Financial Technology</em>, <em>12</em>(1), 18–35.</li>
+      </ul>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -1142,6 +1644,21 @@ function downloadSVGAsPNG(svgId, filename) {
     document.body.removeChild(downloadLink);
   };
   image.src = blobURL;
+}
+
+function copyAllReferences() {
+  const refContainer = document.getElementById('apa-ref-content');
+  const textToCopy = refContainer.innerText;
+  navigator.clipboard.writeText(textToCopy).then(function() {
+    const btn = document.getElementById('btn-copy-refs');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '✅ คัดลอกรายการอ้างอิงเรียบร้อยแล้ว!';
+    btn.style.background = '#16a34a';
+    setTimeout(function() {
+      btn.innerHTML = originalText;
+      btn.style.background = '#2563eb';
+    }, 2500);
+  });
 }
 </script>
 </body>
